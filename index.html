@@ -1,583 +1,259 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voltaris | Ingeniería Eléctrica</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+export default function VoltarisWebsite() {
+  const services = [
+    {
+      title: 'Ingeniería eléctrica',
+      text: 'Diseño, cálculo, revisión y desarrollo de proyectos eléctricos para aplicaciones residenciales, comerciales e industriales.',
+    },
+    {
+      title: 'Generación distribuida',
+      text: 'Soluciones fotovoltaicas, evaluación técnica, dimensionamiento e integración de sistemas conectados a red.',
+    },
+    {
+      title: 'Automatización industrial',
+      text: 'Implementación de sistemas de control, tableros, instrumentación y soluciones orientadas a eficiencia operativa.',
+    },
+    {
+      title: 'Electromovilidad',
+      text: 'Asesoramiento, equipos, repuestos y servicios relacionados con scooters, motos y soluciones de movilidad eléctrica.',
+    },
+    {
+      title: 'Instalación y mantenimiento',
+      text: 'Montaje de sistemas eléctricos, mantenimiento preventivo y correctivo, soporte técnico y reparación de equipos.',
+    },
+    {
+      title: 'Comercialización e importación',
+      text: 'Venta de equipos eléctricos, accesorios, repuestos y soluciones técnicas para proyectos de energía y electrificación.',
+    },
+  ];
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #020617;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+  const products = [
+    {
+      title: 'Scooter eléctrico urbano',
+      category: 'Electromovilidad',
+      image:
+        'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+      title: 'Inversor para energía solar',
+      category: 'Generación distribuida',
+      image:
+        'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+      title: 'Tablero y control eléctrico',
+      category: 'Automatización',
+      image:
+        'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    },
+  ];
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(2, 6, 23, 0.95);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1150px;
-      margin: 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: #2563eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .brand-text h1 {
-      font-size: 22px;
-      letter-spacing: 1px;
-    }
-
-    .brand-text span {
-      font-size: 11px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
-    .hero {
-      padding: 90px 0;
-      background: radial-gradient(circle at top, rgba(37,99,235,0.25), transparent 35%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(37,99,235,0.12);
-      border: 1px solid rgba(96,165,250,0.2);
-      color: #bfdbfe;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .hero h2 {
-      font-size: 52px;
-      line-height: 1.1;
-      margin-bottom: 22px;
-    }
-
-    .hero p {
-      color: #cbd5e1;
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 650px;
-    }
-
-    .buttons a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 16px;
-      margin-right: 12px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #e2e8f0;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.05);
-    }
-
-    .card-panel {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      padding: 24px;
-    }
-
-    .card-panel h3 {
-      margin-bottom: 18px;
-      color: #94a3b8;
-      font-size: 14px;
-      font-weight: normal;
-    }
-
-    .tag-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #e2e8f0;
-      font-size: 14px;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .mini-card {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .mini-card strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .mini-card span {
-      color: #94a3b8;
-      font-size: 13px;
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
-    .section-title small {
-      color: #93c5fd;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-
-    .section-title h3 {
-      margin-top: 12px;
-      font-size: 38px;
-      max-width: 700px;
-    }
-
-    .services-grid {
-      margin-top: 35px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .service-card {
-      padding: 26px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .service-card h4 {
-      margin-bottom: 12px;
-      font-size: 21px;
-    }
-
-    .service-card p {
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    .about {
-      background: rgba(255,255,255,0.02);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 35px;
-    }
-
-    .about p {
-      margin-top: 20px;
-      color: #cbd5e1;
-      font-size: 17px;
-      max-width: 800px;
-    }
-
-    .info-box {
-      padding: 20px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      margin-bottom: 14px;
-    }
-
-    .info-box strong {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .info-box span {
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    .sectors-grid {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .sector {
-      padding: 28px;
-      text-align: center;
-      border-radius: 26px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-weight: bold;
-    }
-
-    .contact {
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-    }
-
-    .contact p {
-      margin-top: 18px;
-      color: #cbd5e1;
-      max-width: 700px;
-    }
-
-    .contact-data {
-      margin-top: 22px;
-      color: #e2e8f0;
-    }
-
-    .contact-data div {
-      margin-bottom: 10px;
-    }
-
-    .form-card {
-      padding: 24px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .form-card input,
-    .form-card textarea {
-      width: 100%;
-      margin-bottom: 14px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #0f172a;
-      color: white;
-      font-size: 14px;
-    }
-
-    .form-card textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-card button {
-      width: 100%;
-      border: none;
-      background: #2563eb;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 16px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .form-card button:hover {
-      background: #1d4ed8;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 26px 0;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    .footer-flex {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .services-grid,
-      .sectors-grid,
-      .mini-grid,
-      .tag-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero h2 {
-        font-size: 38px;
-      }
-
-      .footer-flex {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">⚡</div>
-        <div class="brand-text">
-          <h1>VOLTARIS</h1>
-          <span>Electrical Engineering</span>
-        </div>
-      </div>
-      <nav>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#sectores">Sectores</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="pill">Ingeniería eléctrica • Energía • Electromovilidad</div>
-        <h2>Soluciones eléctricas modernas para proyectos con visión.</h2>
-        <p>
-          Voltaris desarrolla servicios de ingeniería eléctrica, generación distribuida,
-          automatización, mantenimiento técnico y comercialización de equipos para clientes
-          residenciales, comerciales e industriales.
-        </p>
-        <div class="buttons">
-          <a class="btn-primary" href="#contacto">Solicitar cotización</a>
-          <a class="btn-secondary" href="#servicios">Ver servicios</a>
-        </div>
-      </div>
-
-      <div class="card-panel">
-        <h3>Áreas de especialidad</h3>
-        <div class="tag-grid">
-          <div class="tag">Ingeniería eléctrica</div>
-          <div class="tag">Generación distribuida</div>
-          <div class="tag">Electromovilidad</div>
-          <div class="tag">Automatización industrial</div>
-          <div class="tag">Instalaciones eléctricas</div>
-          <div class="tag">Venta de equipos y repuestos</div>
-        </div>
-        <div class="mini-grid">
-          <div class="mini-card">
-            <strong>Proyectos</strong>
-            <span>Diseño y ejecución técnica</span>
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <img
+                src="/Voltaris_Logo.png"
+                alt="Voltaris"
+                className="h-full w-full object-contain p-1"
+              />
+            </div>
+            <div>
+              <div className="text-xl font-semibold tracking-wide text-slate-950">VOLTARIS</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-slate-500">Electrical Engineering</div>
+            </div>
           </div>
-          <div class="mini-card">
-            <strong>Soporte</strong>
-            <span>Mantenimiento y reparación</span>
+          <nav className="hidden gap-8 text-sm text-slate-600 md:flex">
+            <a href="#servicios" className="transition hover:text-slate-950">Servicios</a>
+            <a href="#catalogo" className="transition hover:text-slate-950">Catálogo</a>
+            <a href="#nosotros" className="transition hover:text-slate-950">Nosotros</a>
+            <a href="#contacto" className="transition hover:text-slate-950">Contacto</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.12),transparent_38%)]">
+          <div className="mx-auto grid max-w-7xl gap-14 px-6 py-24 md:grid-cols-2 md:py-28">
+            <div className="relative z-10">
+              <div className="mb-4 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-700">
+                Ingeniería eléctrica • Energía • Electromovilidad
+              </div>
+              <h1 className="max-w-xl text-5xl font-semibold leading-tight tracking-tight text-slate-950 md:text-6xl">
+                Soluciones eléctricas con una estética técnica y moderna.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                Voltaris desarrolla servicios de ingeniería eléctrica, generación distribuida, automatización, mantenimiento técnico y comercialización de equipos para clientes residenciales, comerciales e industriales.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="#contacto"
+                  className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  Solicitar cotización
+                </a>
+                <a
+                  href="#catalogo"
+                  className="rounded-2xl border border-slate-300 px-6 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+                >
+                  Ver catálogo
+                </a>
+              </div>
+            </div>
+
+            <div className="relative z-10">
+              <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/70">
+                <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+                  <div className="text-sm text-slate-500">Áreas de especialidad</div>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    {[
+                      'Ingeniería eléctrica',
+                      'Generación distribuida',
+                      'Electromovilidad',
+                      'Automatización industrial',
+                      'Instalaciones eléctricas',
+                      'Venta de equipos y repuestos',
+                    ].map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm text-slate-700">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {[
+                    ['Proyectos', 'Diseño y ejecución técnica'],
+                    ['Soporte', 'Mantenimiento y reparación'],
+                    ['Comercial', 'Equipos eléctricos y soluciones'],
+                  ].map(([title, desc]) => (
+                    <div key={title} className="rounded-[1.5rem] border border-slate-200 bg-white p-5">
+                      <div className="text-sm font-medium text-slate-950">{title}</div>
+                      <div className="mt-2 text-sm leading-6 text-slate-500">{desc}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="mini-card">
-            <strong>Comercial</strong>
-            <span>Equipos eléctricos y soluciones</span>
+        </section>
+
+        <section id="servicios" className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12 max-w-2xl">
+            <div className="text-sm uppercase tracking-[0.3em] text-blue-700">Servicios</div>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              Una plataforma técnica para energía, industria y movilidad eléctrica.
+            </h2>
           </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => (
+              <div key={service.title} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <div className="mb-4 h-12 w-12 rounded-2xl bg-blue-50" />
+                <h3 className="text-xl font-medium text-slate-950">{service.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-500">{service.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="catalogo" className="border-y border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-7xl px-6 py-20">
+            <div className="mb-12 max-w-2xl">
+              <div className="text-sm uppercase tracking-[0.3em] text-blue-700">Catálogo</div>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                Productos y soluciones destacadas.
+              </h2>
+              <p className="mt-4 text-base leading-8 text-slate-600">
+                Esta sección puede ampliarse con más productos, fichas técnicas, imágenes reales y botones hacia WhatsApp o formularios de cotización.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {products.map((product) => (
+                <div key={product.title} className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                  <div className="aspect-[4/3] bg-slate-100">
+                    <img src={product.image} alt={product.title} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <div className="text-xs uppercase tracking-[0.25em] text-slate-400">{product.category}</div>
+                    <h3 className="mt-3 text-xl font-medium text-slate-950">{product.title}</h3>
+                    <a
+                      href="#contacto"
+                      className="mt-5 inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                    >
+                      Solicitar información
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="nosotros" className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <div className="text-sm uppercase tracking-[0.3em] text-blue-700">Nosotros</div>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                Voltaris conecta ingeniería, energía y soluciones reales.
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600">
+                Nuestra propuesta integra conocimiento técnico, visión comercial y enfoque en innovación para acompañar proyectos eléctricos, energéticos y de electromovilidad con una identidad moderna, confiable y especializada.
+              </p>
+            </div>
+            <div className="grid gap-4">
+              {[
+                ['Enfoque', 'Soluciones aplicables y técnicamente sólidas.'],
+                ['Cobertura', 'Servicios para clientes residenciales, comerciales e industriales.'],
+                ['Visión', 'Impulsar electrificación inteligente y energía sostenible.'],
+              ].map(([title, text]) => (
+                <div key={title} className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
+                  <div className="text-sm font-medium text-slate-950">{title}</div>
+                  <div className="mt-2 text-sm leading-6 text-slate-500">{text}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contacto" className="border-t border-slate-200 bg-slate-50">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-[1fr_1fr]">
+            <div>
+              <div className="text-sm uppercase tracking-[0.3em] text-blue-700">Contacto</div>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                Conversemos sobre tu próximo proyecto.
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-8 text-slate-600">
+                Aquí puedes reemplazar con tus datos reales, enlazar tu WhatsApp, tu correo corporativo y tus redes sociales.
+              </p>
+              <div className="mt-8 grid gap-4 text-sm text-slate-700">
+                <div>Correo: contacto@voltaris.com</div>
+                <div>Teléfono: +591 000 00000</div>
+                <div>Ubicación: Bolivia</div>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="grid gap-4">
+                <input className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none placeholder:text-slate-400" placeholder="Nombre" />
+                <input className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none placeholder:text-slate-400" placeholder="Correo electrónico" />
+                <input className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none placeholder:text-slate-400" placeholder="Asunto" />
+                <textarea className="min-h-[140px] rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none placeholder:text-slate-400" placeholder="Cuéntanos sobre tu proyecto" />
+                <button className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800">
+                  Enviar mensaje
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+          <div>© 2026 Voltaris. Todos los derechos reservados.</div>
+          <div>Electrical Engineering · Energy Solutions · Electromobility</div>
         </div>
-      </div>
+      </footer>
     </div>
-  </section>
-
-  <section id="servicios">
-    <div class="container">
-      <div class="section-title">
-        <small>Servicios</small>
-        <h3>Una plataforma técnica para energía, industria y movilidad eléctrica.</h3>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <h4>Ingeniería eléctrica</h4>
-          <p>Diseño, cálculo, revisión y desarrollo de proyectos eléctricos para aplicaciones residenciales, comerciales e industriales.</p>
-        </div>
-        <div class="service-card">
-          <h4>Generación distribuida</h4>
-          <p>Soluciones fotovoltaicas, evaluación técnica, dimensionamiento e integración de sistemas conectados a red.</p>
-        </div>
-        <div class="service-card">
-          <h4>Automatización industrial</h4>
-          <p>Implementación de sistemas de control, tableros, instrumentación y soluciones orientadas a eficiencia operativa.</p>
-        </div>
-        <div class="service-card">
-          <h4>Electromovilidad</h4>
-          <p>Asesoramiento, equipos, repuestos y servicios relacionados con scooters, motos y soluciones de movilidad eléctrica.</p>
-        </div>
-        <div class="service-card">
-          <h4>Instalación y mantenimiento</h4>
-          <p>Montaje de sistemas eléctricos, mantenimiento preventivo y correctivo, soporte técnico y reparación de equipos.</p>
-        </div>
-        <div class="service-card">
-          <h4>Comercialización e importación</h4>
-          <p>Venta de equipos eléctricos, accesorios, repuestos y soluciones técnicas para proyectos de energía y electrificación.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="nosotros" class="about">
-    <div class="container about-grid">
-      <div>
-        <div class="section-title">
-          <small>Nosotros</small>
-          <h3>Voltaris nace para conectar ingeniería, energía y soluciones reales.</h3>
-        </div>
-        <p>
-          Nuestra propuesta integra conocimiento técnico, visión comercial y enfoque en innovación
-          para acompañar proyectos eléctricos, energéticos y de electromovilidad con una identidad
-          moderna, confiable y especializada.
-        </p>
-      </div>
-
-      <div>
-        <div class="info-box">
-          <strong>Enfoque</strong>
-          <span>Soluciones aplicables y técnicamente sólidas.</span>
-        </div>
-        <div class="info-box">
-          <strong>Cobertura</strong>
-          <span>Servicios para clientes residenciales, comerciales e industriales.</span>
-        </div>
-        <div class="info-box">
-          <strong>Visión</strong>
-          <span>Impulsar electrificación inteligente y energía sostenible.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="sectores">
-    <div class="container">
-      <div class="section-title">
-        <small>Sectores</small>
-        <h3>Experiencia orientada a diferentes entornos de aplicación.</h3>
-      </div>
-
-      <div class="sectors-grid">
-        <div class="sector">Residencial</div>
-        <div class="sector">Comercial</div>
-        <div class="sector">Industrial</div>
-        <div class="sector">Movilidad eléctrica</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto" class="contact">
-    <div class="container contact-grid">
-      <div>
-        <div class="section-title">
-          <small>Contacto</small>
-          <h3>Conversemos sobre tu próximo proyecto.</h3>
-        </div>
-        <p>
-          Puedes usar este espacio para añadir tus datos de contacto reales, dirección,
-          WhatsApp, correo corporativo y redes sociales de Voltaris.
-        </p>
-
-        <div class="contact-data">
-          <div>Correo: contacto@voltaris.com</div>
-          <div>Teléfono: +591 00000000</div>
-          <div>Ubicación: Bolivia</div>
-        </div>
-      </div>
-
-      <div class="form-card">
-        <input type="text" placeholder="Nombre" />
-        <input type="email" placeholder="Correo electrónico" />
-        <input type="text" placeholder="Asunto" />
-        <textarea placeholder="Cuéntanos sobre tu proyecto"></textarea>
-        <button>Enviar mensaje</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-flex">
-      <div>© 2026 Voltaris. Todos los derechos reservados.</div>
-      <div>Electrical Engineering · Energy Solutions · Electromobility</div>
-    </div>
-  </footer>
-
-</body>
-</html>
+  );
+}
