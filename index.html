@@ -768,13 +768,16 @@
         </div>
 
         <div class="form-card">
-          <h4>Solicitar información</h4>
-          <input type="text" placeholder="Nombre" />
-          <input type="email" placeholder="Correo electrónico" />
-          <input type="text" placeholder="Asunto" />
-          <textarea placeholder="Cuéntanos sobre tu proyecto o producto de interés"></textarea>
-          <button>Enviar mensaje</button>
-        </div>
+  <h4>Solicitar información</h4>
+
+  <form action="https://formspree.io/f/rvargascorporativo@gmail.com" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required />
+    <input type="email" name="email" placeholder="Correo electrónico" required />
+    <input type="text" name="asunto" placeholder="Asunto" required />
+    <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto o producto de interés" required></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</div>
       </div>
     </div>
   </section>
