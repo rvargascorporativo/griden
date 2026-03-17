@@ -1,854 +1,265 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voltaris | Ingeniería Eléctrica</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltaris | Ingeniería Eléctrica</title>
 
-    :root{
-      --primary:#0f172a;
-      --accent:#2563eb;
-      --accent-soft:#eff6ff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:#e2e8f0;
-      --bg:#ffffff;
-      --bg-soft:#f8fafc;
-    }
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+:root{
+--primary:#0f172a;
+--accent:#2563eb;
+--text:#0f172a;
+--muted:#475569;
+--border:#e2e8f0;
+--bg:#ffffff;
+--bg-soft:#f8fafc;
+}
 
-    .container {
-      width: 92%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
+.container{
+width:92%;
+max-width:1200px;
+margin:auto;
+}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      gap: 20px;
-    }
+header{
+position:sticky;
+top:0;
+background:#fff;
+border-bottom:1px solid var(--border);
+z-index:100;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
 
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: white;
-      border: 1px solid var(--border);
-      padding: 4px;
-    }
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:var(--muted);
+font-weight:600;
+}
 
-    .brand-text h1 {
-      font-size: 24px;
-      letter-spacing: 0.5px;
-      color: var(--primary);
-    }
+.hero{
+padding:80px 0;
+background:var(--bg-soft);
+}
 
-    .brand-text span {
-      font-size: 11px;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+.hero h2{
+font-size:40px;
+margin-bottom:20px;
+}
 
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 15px;
-      font-weight: 600;
-    }
+.buttons a{
+padding:12px 18px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+margin-right:10px;
+}
 
-    nav a:hover {
-      color: var(--primary);
-    }
+.btn-primary{background:#0f172a;color:white}
+.btn-whatsapp{background:#16a34a;color:white}
 
-    .hero {
-      background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.10), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-      padding: 90px 0 70px;
-      border-bottom: 1px solid var(--border);
-    }
+section{padding:70px 0}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: center;
-    }
+.section-title h3{
+font-size:32px;
+margin-bottom:10px;
+}
 
-    .pill {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
-      font-size: 14px;
-      margin-bottom: 24px;
-      font-weight: 600;
-    }
+.catalogo{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:30px;
+}
 
-    .hero h2 {
-      font-size: 56px;
-      line-height: 1.08;
-      margin-bottom: 22px;
-      color: var(--primary);
-    }
+.producto{
+background:white;
+border:1px solid var(--border);
+border-radius:20px;
+overflow:hidden;
+}
 
-    .hero p {
-      color: var(--muted);
-      font-size: 19px;
-      margin-bottom: 30px;
-      max-width: 700px;
-    }
+.producto img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+.producto-content{
+padding:15px;
+}
 
-    .buttons a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 15px 24px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1e293b;
-    }
-
-    .btn-whatsapp {
-      background: #16a34a;
-      color: white;
-    }
 .producto-link{
-  text-decoration:none;
-  color:inherit;
-  display:block;
+text-decoration:none;
+color:inherit;
+display:block;
 }
 
 .btn-producto{
-  display:inline-block;
-  padding:10px 16px;
-  border-radius:10px;
-  background:#2563eb;
-  color:white;
-  font-size:14px;
-  font-weight:bold;
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+border-radius:8px;
+background:#2563eb;
+color:white;
+font-size:14px;
 }
-    .btn-whatsapp:hover {
-      background: #15803d;
-    }
 
-    .hero-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 26px;
-      box-shadow: 0 16px 40px rgba(15,23,42,0.06);
-    }
+.form-card input,
+.form-card textarea{
+width:100%;
+margin-bottom:10px;
+padding:10px;
+border-radius:10px;
+border:1px solid var(--border);
+}
 
-    .hero-card h3 {
-      font-size: 15px;
-      color: #64748b;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
+.form-card button{
+width:100%;
+padding:12px;
+background:#0f172a;
+color:white;
+border:none;
+border-radius:10px;
+}
 
-    .spec-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+footer{
+text-align:center;
+padding:20px;
+background:#0f172a;
+color:white;
+}
 
-    .spec {
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px;
-      background: var(--bg-soft);
-      font-size: 14px;
-      color: var(--text);
-      font-weight: 600;
-    }
+@media(max-width:900px){
+.catalogo{grid-template-columns:1fr 1fr}
+}
 
-    section {
-      padding: 85px 0;
-    }
-
-    .section-title small {
-      display: inline-block;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #2563eb;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .section-title h3 {
-      font-size: 40px;
-      color: var(--primary);
-      margin-bottom: 14px;
-      max-width: 760px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 780px;
-      font-size: 17px;
-    }
-
-    .services-grid {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .service-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 10px 25px rgba(15,23,42,0.04);
-    }
-
-    .service-card h4 {
-      font-size: 21px;
-      margin-bottom: 12px;
-      color: var(--primary);
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .catalog-section {
-      background: var(--bg-soft);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .catalogo {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .producto {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
-    }
-
-    .producto img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .producto-content {
-      padding: 18px;
-    }
-
-    .producto small {
-      display: inline-block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #64748b;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .producto h4 {
-      font-size: 20px;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .producto p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .producto a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 11px 16px;
-      border-radius: 12px;
-      background: var(--accent-soft);
-      color: #1d4ed8;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      margin-top: 34px;
-    }
-
-    .about-text {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    .info-box {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 14px;
-    }
-
-    .info-box strong {
-      display: block;
-      color: var(--primary);
-      margin-bottom: 8px;
-      font-size: 16px;
-    }
-
-    .info-box span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .contact-section {
-      background: white;
-      border-top: 1px solid var(--border);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin-top: 34px;
-    }
-
-    .contact-card,
-    .form-card {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px;
-    }
-
-    .contact-card h4,
-    .form-card h4 {
-      color: var(--primary);
-      margin-bottom: 16px;
-      font-size: 22px;
-    }
-
-    .contact-data div {
-      margin-bottom: 12px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .contact-buttons a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 13px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .wa1 { background:#16a34a; color:white; }
-    .wa2 { background:#15803d; color:white; }
-
-    .form-card input,
-    .form-card textarea {
-      width: 100%;
-      margin-bottom: 14px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: white;
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .form-card textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .form-card button {
-      width: 100%;
-      border: none;
-      background: var(--primary);
-      color: white;
-      padding: 14px 20px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 34px 20px;
-      background: var(--primary);
-      color: #cbd5e1;
-      margin-top: 0;
-      font-size: 14px;
-    }
-
-    @media (max-width: 1024px) {
-      .catalogo {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .services-grid,
-      .catalogo,
-      .spec-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero h2 {
-        font-size: 38px;
-      }
-
-      .brand-text h1 {
-        font-size: 20px;
-      }
-    }
-  </style>
+@media(max-width:600px){
+.catalogo{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="Voltaris_Logo.png" alt="Voltaris Logo">
-        <div class="brand-text">
-          <h1>VOLTARIS</h1>
-          <span>Electrical Engineering</span>
-        </div>
-      </div>
-
-   <nav>
-  <a href="#inicio">Inicio</a>
-          <a href="#servicios">Servicios</a>
-  <a href="#catalogo">Productos</a>
-  <a href="#solarrate">SolarRate</a>
-  <a href="#nosotros">Nosotros</a>
-  <a href="#contacto">Contacto</a>
-     <a href="#registro">Registro</a>
+<header>
+<div class="container nav">
+<h2>VOLTARIS</h2>
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#catalogo">Productos</a>
+<a href="#solarrate">SolarRate</a>
+<a href="#contacto">Contacto</a>
+<a href="#registro">Registro</a>
 </nav>
-    </div>
-  </header>
-
-  <section id="inicio" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="pill">Ingeniería eléctrica • Energía • Electromovilidad</div>
-        <h2>Ingeniería eléctrica y soluciones energéticas para proyectos modernos.</h2>
-        <p>
-          Voltaris ofrece servicios de ingeniería eléctrica, generación distribuida, electromovilidad,
-          automatización industrial, instalaciones eléctricas y comercialización de equipos eléctricos
-          para clientes residenciales, comerciales e industriales.
-        </p>
-
-        <div class="buttons">
-          <a class="btn-primary" href="#contacto">Solicitar cotización</a>
-          <a class="btn-whatsapp" href="https://wa.me/59169969051" target="_blank">WhatsApp directo</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <h3>Áreas de especialidad</h3>
-        <div class="spec-grid">
-          <div class="spec">Ingeniería eléctrica</div>
-          <div class="spec">Generación distribuida</div>
-          <div class="spec">Electromovilidad</div>
-          <div class="spec">Automatización industrial</div>
-          <div class="spec">Instalaciones eléctricas</div>
-          <div class="spec">Equipos y repuestos</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="servicios">
-    <div class="container">
-      <div class="section-title">
-        <small>Servicios</small>
-        <h3>Soluciones técnicas orientadas a energía, industria y movilidad eléctrica.</h3>
-        <p>
-          Desarrollamos servicios especializados para proyectos eléctricos, energéticos e industriales,
-          con enfoque en calidad técnica, eficiencia y soporte comercial.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <h4>Ingeniería eléctrica</h4>
-          <p>Diseño, cálculo, revisión y desarrollo de proyectos eléctricos para aplicaciones residenciales, comerciales e industriales.</p>
-        </div>
-
-        <div class="service-card">
-          <h4>Generación distribuida</h4>
-          <p>Evaluación técnica, dimensionamiento e integración de sistemas fotovoltaicos conectados a red.</p>
-        </div>
-
-        <div class="service-card">
-          <h4>Automatización industrial</h4>
-          <p>Tableros, instrumentación, control y soluciones para optimización operativa en procesos industriales.</p>
-        </div>
-
-        <div class="service-card">
-          <h4>Electromovilidad</h4>
-          <p>Venta, asesoramiento técnico y soluciones para scooters, motos eléctricas y equipos asociados.</p>
-        </div>
-
-        <div class="service-card">
-          <h4>Instalación y mantenimiento</h4>
-          <p>Montaje de sistemas eléctricos, mantenimiento preventivo y correctivo, soporte técnico y reparación.</p>
-        </div>
-
-        <div class="service-card">
-          <h4>Comercialización e importación</h4>
-          <p>Venta e importación de equipos eléctricos, repuestos, accesorios y soluciones energéticas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="catalogo" class="catalog-section">
-    <div class="container">
-      <div class="section-title">
-        <small>Catálogo</small>
-        <h3>Productos y soluciones destacadas</h3>
-        <p>
-  Explora nuestras líneas de productos en electromovilidad, energía solar, automatización y equipos eléctricos.
-  Próximamente incorporaremos fichas técnicas, stock y fotografías reales de cada producto.
-</p>
-      </div>
-
-      <a href="scooter-electrico.html" class="producto-link">
-  <div class="producto">
-    <img src="https://blog.movistar.com.co/wp-content/uploads/2024/05/scooter-electrico.webp" alt="Scooter eléctrico">
-    <div class="producto-content">
-      <small>ELECTROMOVILIDAD</small>
-      <h4>Scooter eléctrico</h4>
-      <p>Movilidad eléctrica urbana eficiente para soluciones modernas de transporte.</p>
-      <span class="btn-producto">Ver producto</span>
-    </div>
-  </div>
-</a>
-      
-            <div class="producto">
-          <img src="https://www.aforenergy.com/wp-content/uploads/2025/08/6-1.webp" alt="Inversores solares">
-          <div class="producto-content">
-            <small>Energía solar</small>
-            <h4>Inversor solar</h4>
-            <p>Soluciones para generación distribuida y sistemas conectados a red.</p>
-            <a href="https://wa.me/59169969051" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="producto">
-          <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1200,h_1200/https://electricidadpractica.com/wp-content/uploads/2025/07/componentes-tablero-electrico.webp" alt="Tablero eléctrico">
-          <div class="producto-content">
-            <small>Automatización</small>
-            <h4>Tablero eléctrico</h4>
-            <p>Soluciones para control industrial, distribución y automatización eléctrica.</p>
-            <a href="https://wa.me/59173091113" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="producto">
-          <img src="https://voltiva.energy/wp-content/uploads/2024/06/panel-solar-mono-1024x576.webp" alt="Paneles fotovoltaicos">
-          <div class="producto-content">
-            <small>Generación distribuida</small>
-            <h4>Panel solar</h4>
-            <p>Equipos orientados a soluciones energéticas limpias y eficientes.</p>
-            <a href="https://wa.me/59169969051" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="producto">
-          <img src="https://cdn-3.expansion.mx/dims4/default/f66542e/2147483647/strip/true/crop/2250x1500+0+0/resize/1200x800!/format/webp/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F38%2Ff4%2F628452b149d1a00b8d5401568f23%2Fp90454195-lowres-bmw-ce-04-scenic-01.jpg" alt="Moto eléctrica">
-          <div class="producto-content">
-            <small>Electromovilidad</small>
-            <h4>Moto eléctrica</h4>
-            <p>Alternativas modernas de movilidad con enfoque en eficiencia y sostenibilidad.</p>
-            <a href="https://wa.me/59173091113" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="producto">
-          <img src="https://previews.123rf.com/images/dedmityay/dedmityay2106/dedmityay210600098/170930427-industrial-machines-for-processing-wood-in-workshop-of-woodworking-plant-for-making-wood-molds.jpg" alt="Equipo industrial">
-          <div class="producto-content">
-            <small>Industria</small>
-            <h4>Equipos industriales</h4>
-            <p>Equipamiento eléctrico y soluciones para soporte técnico e ingeniería aplicada.</p>
-            <a href="https://wa.me/59173091113" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="producto">
-          <img src="https://latamobility.com/wp-content/uploads/2022/07/VV-1-1024x768.jpeg" alt="Cargador eléctrico">
-          <div class="producto-content">
-            <small>Electromovilidad</small>
-            <h4>Cargador eléctrico</h4>
-            <p>Infraestructura de carga para soluciones de transporte eléctrico.</p>
-            <a href="https://wa.me/59169969051" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-
-      <a href="https://www.smartpropel.com/wp-content/uploads/2021/06/36V-7.8Ah-4.jpg" class="producto-link">
-  <div class="producto">
-    <img src="bateria.jpg">
-    <div class="producto-content">
-      <small>ALMACENAMIENTO</small>
-      <h4>Baterías de litio</h4>
-      <p>Baterías para scooters, motos eléctricas y sistemas solares.</p>
-      <span class="btn-producto">Ver información</span>
-    </div>
-  </div>
-</a>
-
-        <div class="producto">
-          <img src="https://simacsl.com/wp-content/uploads/2020/11/AUTOMATIZACION-ELECTRICA-1.jpg" alt="Automatización">
-          <div class="producto-content">
-            <small>Control y monitoreo</small>
-            <h4>Sistema de automatización</h4>
-            <p>Soluciones para control, medición y optimización en instalaciones eléctricas e industriales.</p>
-            <a href="https://wa.me/59173091113" target="_blank">Consultar por WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<section id="solarrate" class="solarrate-section">
-  <div class="container">
-    <div class="section-title">
-      <small>Herramienta técnica</small>
-      <h3>Evalúa tu proyecto solar con SolarRate.</h3>
-      <p>
-        SolarRate es nuestra herramienta de evaluación técnico-económica para
-        generación distribuida fotovoltaica. Permite estimar el dimensionamiento
-        del sistema, la producción energética y el ahorro económico esperado.
-      </p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-text">
-        Ideal para clientes residenciales, comerciales e industriales que desean
-        analizar la viabilidad preliminar de un sistema solar conectado a red
-        antes de solicitar una propuesta técnica formal.
-      </div>
-
-      <div>
-        <div class="info-box">
-          <strong>¿Qué puedes evaluar?</strong>
-          <span>Consumo eléctrico, potencia recomendada, generación esperada y ahorro estimado.</span>
-        </div>
-        <div class="info-box">
-          <strong>Aplicación</strong>
-          <span>Herramienta orientada a estudios preliminares de generación distribuida.</span>
-        </div>
-        <div class="info-box">
-          <strong>Acceso</strong>
-          <span>Disponible en línea para consulta rápida y apoyo comercial.</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="buttons" style="margin-top: 28px;">
-      <a class="btn-primary" href="https://solarrate-a8c7a.web.app/" target="_blank">Abrir SolarRate</a>
-      <a class="btn-whatsapp" href="https://wa.me/59169969051?text=Hola,%20quiero%20evaluar%20un%20proyecto%20solar%20con%20SolarRate" target="_blank">Solicitar asesoramiento</a>
-    </div>
-  </div>
-</section>
-  <section id="nosotros">
-    <div class="container">
-      <div class="section-title">
-        <small>Nosotros</small>
-        <h3>Voltaris conecta ingeniería, energía y soluciones reales.</h3>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-text">
-          Voltaris integra conocimiento técnico, visión comercial e innovación para acompañar proyectos eléctricos,
-          energéticos y de electromovilidad con una identidad moderna, confiable y especializada. Nuestra propuesta
-          está orientada a ofrecer soluciones aplicables, bien presentadas y técnicamente sólidas para clientes que
-          buscan calidad, eficiencia y respaldo profesional.
-        </div>
-
-        <div>
-          <div class="info-box">
-            <strong>Enfoque</strong>
-            <span>Soluciones técnicas aplicables y orientadas a resultados.</span>
-          </div>
-          <div class="info-box">
-            <strong>Cobertura</strong>
-            <span>Servicios para clientes residenciales, comerciales e industriales.</span>
-          </div>
-          <div class="info-box">
-            <strong>Visión</strong>
-            <span>Impulsar electrificación inteligente, energía sostenible y movilidad moderna.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section id="registro" class="catalog-section">
-  <div class="container">
-    <div class="section-title">
-      <small>Registro</small>
-      <h3>Crea tu cuenta en Voltaris.</h3>
-      <p>
-        Próximamente podrás registrarte para recibir cotizaciones, novedades de productos,
-        seguimiento de consultas y acceso a herramientas técnicas.
-      </p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="form-card">
-        <h4>Pre-registro</h4>
-        <form action="https://formspree.io/f/xxxxxxxx" method="POST">
-          <input type="text" name="nombre" placeholder="Nombre completo" required />
-          <input type="email" name="email" placeholder="Correo electrónico" required />
-          <input type="text" name="telefono" placeholder="Teléfono o WhatsApp" />
-          <input type="text" name="empresa" placeholder="Empresa (opcional)" />
-          <textarea name="interes" placeholder="Indica qué productos o servicios te interesan"></textarea>
-          <button type="submit">Registrarme</button>
-        </form>
-      </div>
-
-      <div class="contact-card">
-        <h4>Beneficios</h4>
-        <div class="contact-data">
-          <div>• Acceso a novedades de productos</div>
-          <div>• Atención preferente para cotizaciones</div>
-          <div>• Información sobre equipos eléctricos y movilidad urbana</div>
-          <div>• Actualizaciones de herramientas como SolarRate</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  
-  <section id="contacto" class="contact-section">
-    <div class="container">
-      <div class="section-title">
-        <small>Contacto</small>
-        <h3>Conversemos sobre tu próximo proyecto.</h3>
-        <p>
-          Puedes contactarnos directamente para cotizaciones, asesoramiento técnico y consultas comerciales.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h4>Datos de contacto</h4>
-          <div class="contact-data">
-            <div><strong>Teléfono 1:</strong> +591 69969051</div>
-            <div><strong>Teléfono 2:</strong> +591 73091113</div>
-            <div><strong>Ubicación:</strong> Bolivia</div>
-          </div>
-
-          <div class="contact-buttons">
-            <a class="wa1" href="https://wa.me/59169969051" target="_blank">WhatsApp 69969051</a>
-            <a class="wa2" href="https://wa.me/59173091113" target="_blank">WhatsApp 73091113</a>
-          </div>
-        </div>
-
-        <div class="form-card">
-  <h4>Solicitar información</h4>
-
-  <form action="https://formspree.io/f/rvargascorporativo@gmail.com" method="POST">
-    <input type="text" name="nombre" placeholder="Nombre" required />
-    <input type="email" name="email" placeholder="Correo electrónico" required />
-    <input type="text" name="asunto" placeholder="Asunto" required />
-    <textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto o producto de interés" required></textarea>
-    <button type="submit">Enviar mensaje</button>
-  </form>
 </div>
-      </div>
-    </div>
-  </section>
+</header>
 
-  <footer>
-    © 2026 Voltaris · Electrical Engineering · Energy Solutions · Electromobility
-  </footer>
+<section id="inicio" class="hero">
+<div class="container">
+<h2>Soluciones eléctricas, energía y movilidad urbana</h2>
+<p>Importación, comercialización e ingeniería en sistemas eléctricos, energía solar y electromovilidad.</p>
+
+<div class="buttons">
+<a class="btn-primary" href="#catalogo">Ver productos</a>
+<a class="btn-whatsapp" href="https://wa.me/59169969051">WhatsApp</a>
+</div>
+</div>
+</section>
+
+<section id="catalogo">
+<div class="container">
+<div class="section-title">
+<h3>Productos y soluciones destacadas</h3>
+<p>Explora nuestras líneas de productos eléctricos y energéticos.</p>
+</div>
+
+<div class="catalogo">
+
+<a href="scooter-electrico.html" class="producto-link">
+<div class="producto">
+<img src="https://plus.unsplash.com/premium_photo-1716440379359-b5e0b2ef0234?fm=jpg&q=60&w=3000" alt="">
+<div class="producto-content">
+<h4>Scooter eléctrico</h4>
+<p>Movilidad urbana eficiente</p>
+<span class="btn-producto">Ver producto</span>
+</div>
+</div>
+</a>
+
+<a href="baterias-litio.html" class="producto-link">
+<div class="producto">
+<img src="https://m.media-amazon.com/images/I/61tNY2bYK6L._AC_UF894,1000_QL80_.jpg">
+<div class="producto-content">
+<h4>Baterías de litio</h4>
+<p>Para scooters y sistemas solares</p>
+<span class="btn-producto">Ver producto</span>
+</div>
+</div>
+</a>
+
+</div>
+</div>
+</section>
+
+<section id="solarrate">
+<div class="container">
+<h3>Calculadora SolarRate</h3>
+<p>Evalúa tu sistema solar en segundos.</p>
+<a class="btn-primary" href="https://solarrate-a8c7a.web.app/" target="_blank">Abrir SolarRate</a>
+</div>
+</section>
+
+<section id="contacto">
+<div class="container">
+<h3>Solicitar información</h3>
+
+<div class="form-card">
+<form action="https://formspree.io/f/XXXXXXXX" method="POST">
+<input type="text" name="nombre" placeholder="Nombre" required>
+<input type="email" name="email" placeholder="Correo" required>
+<textarea name="mensaje" placeholder="Mensaje"></textarea>
+<button type="submit">Enviar</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<section id="registro">
+<div class="container">
+<h3>Registro</h3>
+
+<div class="form-card">
+<form action="https://formspree.io/f/XXXXXXXX" method="POST">
+<input type="text" name="nombre" placeholder="Nombre">
+<input type="email" name="email" placeholder="Correo">
+<button type="submit">Registrarme</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Voltaris
+</footer>
 
 </body>
 </html>
