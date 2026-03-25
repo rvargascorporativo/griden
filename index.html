@@ -969,7 +969,7 @@
     </div>
   </div>
 
- <!-- FIREBASE COMPAT -->
+<!-- FIREBASE COMPAT -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
@@ -1023,7 +1023,7 @@
         setTimeout(() => closeAuth(), 1000);
       })
       .catch((e) => {
-        showAuthMessage(e.message, true);
+        showAuthMessage("Firebase: " + e.message, true);
       });
   }
 
@@ -1042,44 +1042,10 @@
         setTimeout(() => closeAuth(), 1000);
       })
       .catch((e) => {
-        showAuthMessage(e.message, true);
+        showAuthMessage("Firebase: " + e.message, true);
       });
   }
 </script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyBMCa3LVhsPGmTu7n7dH8oGHQ34nr6ZzbQ",
-  authDomain: "gridenbolivia.firebaseapp.com",
-  projectId: "gridenbolivia",
-  storageBucket: "gridenbolivia.firebasestorage.app",
-  messagingSenderId: "829778703180",
-  appId: "1:829778703180:web:ca74494f370e6777dd55e9",
-  measurementId: "G-4S77MHBCQ5"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-function register() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  auth.createUserWithEmailAndPassword(email, password)
-    .then(() => alert("Usuario creado"))
-    .catch(e => alert(e.message));
-}
-
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  auth.signInWithEmailAndPassword(email, password)
-    .then(() => alert("Bienvenido"))
-    .catch(e => alert(e.message));
-}
-</script>
 </body>
 </html>
