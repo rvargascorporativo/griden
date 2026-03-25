@@ -40,44 +40,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-.auth-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
 
-.auth-box {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  width: 320px;
-  text-align: center;
-}
-
-.auth-box input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.auth-box button {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  cursor: pointer;
-}
     header {
       position: sticky;
       top: 0;
@@ -124,6 +87,12 @@
       letter-spacing: 2px;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     nav a {
       color: #94a3b8;
       text-decoration: none;
@@ -135,6 +104,11 @@
 
     nav a:hover {
       color: var(--accent);
+    }
+
+    .auth-link {
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .hero {
@@ -486,6 +460,110 @@
       font-size: 14px;
     }
 
+    /* MODAL AUTH */
+    .auth-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .auth-box {
+      background: #ffffff;
+      width: 100%;
+      max-width: 390px;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+      position: relative;
+    }
+
+    .auth-box h3 {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .auth-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .auth-box input {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .auth-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+    }
+
+    .auth-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .auth-box button {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: none;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-register {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+    }
+
+    .btn-login {
+      background: #e2e8f0;
+      color: var(--primary);
+    }
+
+    .btn-register:hover,
+    .btn-login:hover {
+      transform: translateY(-1px);
+    }
+
+    .close-auth {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      color: #64748b;
+      cursor: pointer;
+      width: auto !important;
+      padding: 0 !important;
+    }
+
+    #authMessage {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      min-height: 20px;
+    }
+
     @media (max-width: 1024px) {
       .catalogo {
         grid-template-columns: repeat(2, 1fr);
@@ -550,8 +628,7 @@
         <a href="#solarrate">SolarRate</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
-
-        <a href="#" onclick="openAuth()">Registro / Login</a>
+        <a href="javascript:void(0)" class="auth-link" onclick="openAuth()">Registro / Login</a>
       </nav>
     </div>
   </header>
@@ -684,7 +761,7 @@
           </div>
         </div>
 
-          <div class="producto">
+        <div class="producto">
           <img src="https://exclusivomotos.com/wp-content/uploads/2024/07/P90454047_lowRes_bmw-ce-04-riding-sho.jpg" alt="Moto eléctrica">
           <div class="producto-content">
             <small>Electromovilidad</small>
@@ -715,7 +792,7 @@
         </div>
 
         <div class="producto">
-          <img src="https://www.caloryfrio.com/images/articulos/energia-solar/estructura-placas-solares-clipado.webp"Estructuras de sistemas fotovoltaicos">
+          <img src="https://www.caloryfrio.com/images/articulos/energia-solar/estructura-placas-solares-clipado.webp" alt="Estructuras de sistemas fotovoltaicos">
           <div class="producto-content">
             <small>Generación distribuida</small>
             <h4>Estructuras para paneles fotovoltaicos</h4>
@@ -724,8 +801,8 @@
           </div>
         </div>
 
-              <div class="producto">
-          <img src="https://img.freepik.com/foto-gratis/fila-equipos-que-producen-piezas-metalicas-obras-foto-profundidad-campo_645730-72.jpg?semt=ais_hybrid&w=740&q=80"Equipo industrial">
+        <div class="producto">
+          <img src="https://img.freepik.com/foto-gratis/fila-equipos-que-producen-piezas-metalicas-obras-foto-profundidad-campo_645730-72.jpg?semt=ais_hybrid&w=740&q=80" alt="Equipo industrial">
           <div class="producto-content">
             <small>Industria</small>
             <h4>Equipos industriales</h4>
@@ -735,7 +812,7 @@
         </div>
 
         <div class="producto">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ_Epw3w1q0XpOTUJg6LmmhZ1YXVEwEY2DJg&s"Cargador eléctrico">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ_Epw3w1q0XpOTUJg6LmmhZ1YXVEwEY2DJg&s" alt="Cargador eléctrico">
           <div class="producto-content">
             <small>Electromovilidad</small>
             <h4>Cargador eléctrico</h4>
@@ -745,7 +822,7 @@
         </div>
 
         <div class="producto">
-          <img src="https://educacionprofesional.ing.uc.cl/app/uploads/2021/09/curso-Tecnologias-automatizacion-control.webp"Sistema de automatización">
+          <img src="https://educacionprofesional.ing.uc.cl/app/uploads/2021/09/curso-Tecnologias-automatizacion-control.webp" alt="Sistema de automatización">
           <div class="producto-content">
             <small>Control y monitoreo</small>
             <h4>Sistema de automatización</h4>
@@ -870,36 +947,120 @@
   </section>
 
   <footer>
-    © 2026 Griden · Electrical Engineering · Energy Solutions · Electromobility
+    © 2026 Griden · Energía · Tecnología · Soluciones
   </footer>
-<!-- MODAL LOGIN -->
-<div id="authModal" class="auth-modal">
-  <div class="auth-box">
-    <h3>Crear cuenta</h3>
 
-    <input type="email" id="email" placeholder="Correo">
-    <input type="password" id="password" placeholder="Contraseña">
+  <!-- MODAL LOGIN / REGISTRO -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-box">
+      <button class="close-auth" onclick="closeAuth()" aria-label="Cerrar">&times;</button>
+      <h3>Mi cuenta</h3>
+      <p class="auth-subtitle">Regístrate o inicia sesión para guardar tus datos y futuras consultas.</p>
 
-    <button onclick="register()">Registrarse</button>
-    <button onclick="login()">Iniciar sesión</button>
+      <input type="email" id="email" placeholder="Correo electrónico" />
+      <input type="password" id="password" placeholder="Contraseña" />
 
-    <span onclick="closeAuth()">Cerrar</span>
+      <div class="auth-actions">
+        <button class="btn-register" onclick="register()">Registrarse</button>
+        <button class="btn-login" onclick="login()">Iniciar sesión</button>
+      </div>
+
+      <div id="authMessage"></div>
+    </div>
   </div>
-</div>
- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+
+  <!-- FIREBASE COMPAT -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+  <script>
+    function openAuth() {
+      document.getElementById("authModal").style.display = "flex";
+    }
+
+    function closeAuth() {
+      document.getElementById("authModal").style.display = "none";
+    }
+
+    window.addEventListener("click", function(event) {
+      const modal = document.getElementById("authModal");
+      if (event.target === modal) {
+        closeAuth();
+      }
+    });
+
+    function showAuthMessage(message, isError = false) {
+      const box = document.getElementById("authMessage");
+      box.textContent = message;
+      box.style.color = isError ? "#dc2626" : "#16a34a";
+    }
+
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROYECTO.firebaseapp.com",
+      projectId: "TU_PROYECTO",
+      appId: "TU_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function register() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password) {
+        showAuthMessage("Completa correo y contraseña.", true);
+        return;
+      }
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          showAuthMessage("Usuario creado correctamente.");
+          setTimeout(() => closeAuth(), 1000);
+        })
+        .catch((e) => {
+          showAuthMessage(e.message, true);
+        });
+    }
+
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password) {
+        showAuthMessage("Completa correo y contraseña.", true);
+        return;
+      }
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          showAuthMessage("Sesión iniciada correctamente.");
+          setTimeout(() => closeAuth(), 1000);
+        })
+        .catch((e) => {
+          showAuthMessage(e.message, true);
+        });
+    }
+  </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
 <script>
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROYECTO.firebaseapp.com",
+  apiKey: "AIzaSyBMCa3LVhsPGmTu7n7dH8oGHQ34nr6ZzbQ",
+  authDomain: "gridenbolivia.firebaseapp.com",
+  projectId: "gridenbolivia",
+  storageBucket: "gridenbolivia.firebasestorage.app",
+  messagingSenderId: "829778703180",
+  appId: "1:829778703180:web:ca74494f370e6777dd55e9",
+  measurementId: "G-4S77MHBCQ5"
 };
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// REGISTRO
-function register(){
+function register() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -908,8 +1069,7 @@ function register(){
     .catch(e => alert(e.message));
 }
 
-// LOGIN
-function login(){
+function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -917,6 +1077,6 @@ function login(){
     .then(() => alert("Bienvenido"))
     .catch(e => alert(e.message));
 }
-</script> 
+</script>
 </body>
 </html>
