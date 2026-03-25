@@ -628,7 +628,8 @@
         <a href="#solarrate">SolarRate</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
-        <a href="javascript:void(0)" class="auth-link" onclick="openAuth()">Mi cuenta</a>
+        <a href="javascript:void(0)" class="auth-link" id="authNavLink" onclick="openAuth()">Mi cuenta</a>
+<a href="javascript:void(0)" class="auth-link" id="logoutLink" onclick="logout()" style="display:none;">Cerrar sesión</a>
       </nav>
     </div>
   </header>
@@ -965,7 +966,7 @@
         <button class="btn-login" onclick="login()">Iniciar sesión</button>
       </div>
 
-      <div id="authMessage"></div>
+        <div id="authMessage"></div>
     </div>
   </div>
 
@@ -1045,6 +1046,35 @@
         showAuthMessage("Firebase: " + e.message, true);
       });
   }
+
+  function logout() {
+  auth.signOut()
+    .then(() => {
+      showAuthMessage("Sesión cerrada correctamente.");
+      closeAuth();
+    })
+    .catch((e) => {
+      showAuthMessage("Firebase: " + e.message, true);
+    });
+}
+
+auth.onAuthStateChanged((user) => {
+  const authNavLink = document.getElementById("authNavLink");
+  const logoutLink = document.getElementById("logoutLink");
+
+  if (user) {
+    const email = user.email || "Usuario";
+    const nombreCorto = email.split("@")[0];
+authNavLink.textContent = "Hola, " + nombreCorto;
+    authNavLink.textContent = email;
+    authNavLink.onclick = function () { openAuth(); };
+    logoutLink.style.display = "inline-block";
+  } else {
+    authNavLink.textContent = "Mi cuenta";
+    authNavLink.onclick = function () { openAuth(); };
+    logoutLink.style.display = "none";
+  }
+});
 </script>
 
 </body>
