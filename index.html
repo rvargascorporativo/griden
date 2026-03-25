@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4S77MHBCQ5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4S77MHBCQ5');
+</script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Griden | Energía y Tecnología</title>
@@ -621,16 +630,16 @@
         </div>
       </div>
 
-      <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#catalogo">Productos</a>
-        <a href="#solarrate">SolarRate</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-        <a href="javascript:void(0)" class="auth-link" id="authNavLink" onclick="openAuth()">Mi cuenta</a>
-<a href="javascript:void(0)" class="auth-link" id="logoutLink" onclick="logout()" style="display:none;">Cerrar sesión</a>
-      </nav>
+     <nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#catalogo">Productos</a>
+  <a href="#solarrate">SolarRate</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+  <a href="javascript:void(0)" class="auth-link" id="authNavLink" onclick="openAuth()">Mi cuenta</a>
+  <a href="javascript:void(0)" class="auth-link" id="logoutLink" onclick="logout()" style="display:none;">Cerrar sesión</a>
+</nav>
     </div>
   </header>
 
@@ -977,13 +986,14 @@
 <script>
   function openAuth() {
     document.getElementById("authModal").style.display = "flex";
+    clearAuthMessage();
   }
 
   function closeAuth() {
     document.getElementById("authModal").style.display = "none";
   }
 
-  window.addEventListener("click", function(event) {
+  window.addEventListener("click", function (event) {
     const modal = document.getElementById("authModal");
     if (event.target === modal) {
       closeAuth();
@@ -994,6 +1004,15 @@
     const box = document.getElementById("authMessage");
     box.textContent = message;
     box.style.color = isError ? "#dc2626" : "#16a34a";
+  }
+
+  function clearAuthMessage() {
+    document.getElementById("authMessage").textContent = "";
+  }
+
+  function clearAuthFields() {
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
   }
 
   const firebaseConfig = {
@@ -1021,7 +1040,8 @@
     auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         showAuthMessage("Usuario creado correctamente.");
-        setTimeout(() => closeAuth(), 1000);
+        clearAuthFields();
+        setTimeout(() => closeAuth(), 900);
       })
       .catch((e) => {
         showAuthMessage("Firebase: " + e.message, true);
@@ -1040,7 +1060,8 @@
     auth.signInWithEmailAndPassword(email, password)
       .then(() => {
         showAuthMessage("Sesión iniciada correctamente.");
-        setTimeout(() => closeAuth(), 1000);
+        clearAuthFields();
+        setTimeout(() => closeAuth(), 900);
       })
       .catch((e) => {
         showAuthMessage("Firebase: " + e.message, true);
@@ -1048,33 +1069,31 @@
   }
 
   function logout() {
-  auth.signOut()
-    .then(() => {
-      showAuthMessage("Sesión cerrada correctamente.");
-      closeAuth();
-    })
-    .catch((e) => {
-      showAuthMessage("Firebase: " + e.message, true);
-    });
-}
+    auth.signOut()
+      .then(() => {
+        closeAuth();
+      })
+      .catch((e) => {
+        showAuthMessage("Firebase: " + e.message, true);
+      });
+  }
 
-auth.onAuthStateChanged((user) => {
-  const authNavLink = document.getElementById("authNavLink");
-  const logoutLink = document.getElementById("logoutLink");
+  auth.onAuthStateChanged((user) => {
+    const authNavLink = document.getElementById("authNavLink");
+    const logoutLink = document.getElementById("logoutLink");
 
- if (user) {
-  const email = user.email || "Usuario";
-  const nombreCorto = email.split("@")[0];
-  authNavLink.textContent = "Hola, " + nombreCorto;
-  authNavLink.onclick = function () { openAuth(); };
-  logoutLink.style.display = "inline-block";
-} else {
-  authNavLink.textContent = "Mi cuenta";
-  authNavLink.onclick = function () { openAuth(); };
-  logoutLink.style.display = "none";
-}
-});
+    if (user) {
+      const email = user.email || "Usuario";
+      const nombreCorto = email.split("@")[0];
+      authNavLink.textContent = "Hola, " + nombreCorto;
+      authNavLink.onclick = function () { openAuth(); };
+      logoutLink.style.display = "inline-block";
+    } else {
+      authNavLink.textContent = "Mi cuenta";
+      authNavLink.onclick = function () { openAuth(); };
+      logoutLink.style.display = "none";
+    }
+  });
 </script>
-
 </body>
 </html>
