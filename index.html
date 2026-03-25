@@ -1062,18 +1062,17 @@ auth.onAuthStateChanged((user) => {
   const authNavLink = document.getElementById("authNavLink");
   const logoutLink = document.getElementById("logoutLink");
 
-  if (user) {
-    const email = user.email || "Usuario";
-    const nombreCorto = email.split("@")[0];
-authNavLink.textContent = "Hola, " + nombreCorto;
-    authNavLink.textContent = email;
-    authNavLink.onclick = function () { openAuth(); };
-    logoutLink.style.display = "inline-block";
-  } else {
-    authNavLink.textContent = "Mi cuenta";
-    authNavLink.onclick = function () { openAuth(); };
-    logoutLink.style.display = "none";
-  }
+ if (user) {
+  const email = user.email || "Usuario";
+  const nombreCorto = email.split("@")[0];
+  authNavLink.textContent = "Hola, " + nombreCorto;
+  authNavLink.onclick = function () { openAuth(); };
+  logoutLink.style.display = "inline-block";
+} else {
+  authNavLink.textContent = "Mi cuenta";
+  authNavLink.onclick = function () { openAuth(); };
+  logoutLink.style.display = "none";
+}
 });
 </script>
 
