@@ -573,6 +573,101 @@
       min-height: 20px;
     }
 
+    .menu-toggle {
+  display: none;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 24px;
+  line-height: 1;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: none;
+  z-index: 998;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 290px;
+  max-width: 85vw;
+  height: 100vh;
+  background: white;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  z-index: 999;
+  transition: left 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu.active {
+  left: 0;
+}
+
+.mobile-menu-overlay.active {
+  display: block;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 22px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.mobile-menu-header strong {
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.mobile-menu-header span {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.mobile-close {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.mobile-menu-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.mobile-menu-links a:hover {
+  background: var(--bg-soft);
+  color: var(--accent);
+}
     @media (max-width: 1024px) {
       .catalogo {
         grid-template-columns: repeat(2, 1fr);
@@ -588,60 +683,96 @@
     }
 
     @media (max-width: 860px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .services-grid,
-      .catalogo {
-        grid-template-columns: 1fr;
-      }
+  .hero-grid,
+  .about-grid,
+  .contact-grid,
+  .services-grid,
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
 
-      .trust {
-        grid-template-columns: 1fr;
-      }
+  .trust {
+    grid-template-columns: 1fr;
+  }
 
-      nav {
-        display: none;
-      }
+  .desktop-nav {
+    display: none;
+  }
 
-      .hero h2 {
-        font-size: 38px;
-      }
+  .menu-toggle {
+    display: inline-block;
+  }
 
-      .hero-visual img {
-        min-height: 280px;
-      }
+  .hero h2 {
+    font-size: 38px;
+  }
 
-      .brand-text h1 {
-        font-size: 20px;
-      }
-    }
+  .hero-visual img {
+    min-height: 280px;
+  }
+
+  .brand-text h1 {
+    font-size: 20px;
+  }
+
+  .brand-text span {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+}
   </style>
 </head>
 <body>
 
   <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="Griden_Logo.png" alt="Griden Logo">
-        <div class="brand-text">
-          <h1>Griden</h1>
-          <span>Energía y Tecnología</span>
-        </div>
+  <div class="container nav">
+    <div class="brand">
+      <img src="Griden_Logo.png" alt="Griden Logo">
+      <div class="brand-text">
+        <h1>Griden</h1>
+        <span>Energía y Tecnología</span>
       </div>
-
-     <nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#catalogo">Productos</a>
-  <a href="#solarrate">SolarRate</a>
-  <a href="#nosotros">Nosotros</a>
-  <a href="#contacto">Contacto</a>
-  <a href="javascript:void(0)" class="auth-link" id="authNavLink" onclick="openAuth()">Mi cuenta</a>
-  <a href="javascript:void(0)" class="auth-link" id="logoutLink" onclick="logout()" style="display:none;">Cerrar sesión</a>
-</nav>
     </div>
-  </header>
+
+    <button class="menu-toggle" onclick="openMobileMenu()" aria-label="Abrir menú">
+      ☰
+    </button>
+
+    <nav class="desktop-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#catalogo">Productos</a>
+      <a href="#solarrate">SolarRate</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a href="javascript:void(0)" class="auth-link" id="authNavLink" onclick="openAuth()">Mi cuenta</a>
+      <a href="javascript:void(0)" class="auth-link" id="logoutLink" onclick="logout()" style="display:none;">Cerrar sesión</a>
+    </nav>
+  </div>
+</header>
+
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+
+<aside id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-header">
+    <div>
+      <strong>Griden</strong><br>
+      <span>Energía y Tecnología</span>
+    </div>
+    <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Cerrar menú">×</button>
+  </div>
+
+  <div class="mobile-menu-links">
+    <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+    <a href="#servicios" onclick="closeMobileMenu()">Servicios</a>
+    <a href="#catalogo" onclick="closeMobileMenu()">Productos</a>
+    <a href="#solarrate" onclick="closeMobileMenu()">SolarRate</a>
+    <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+    <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+    <a href="javascript:void(0)" id="mobileAuthLink" onclick="openAuth(); closeMobileMenu();">Mi cuenta</a>
+    <a href="javascript:void(0)" id="mobileLogoutLink" onclick="logout(); closeMobileMenu();" style="display:none;">Cerrar sesión</a>
+  </div>
+</aside>
 
   <section id="inicio" class="hero">
     <div class="container hero-grid">
@@ -982,7 +1113,16 @@
 <!-- FIREBASE COMPAT -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+function openMobileMenu() {
+  document.getElementById("mobileMenu").classList.add("active");
+  document.getElementById("mobileMenuOverlay").classList.add("active");
+}
 
+function closeMobileMenu() {
+  document.getElementById("mobileMenu").classList.remove("active");
+  document.getElementById("mobileMenuOverlay").classList.remove("active");
+}
+  
 <script>
   function openAuth() {
     document.getElementById("authModal").style.display = "flex";
@@ -1078,22 +1218,36 @@
       });
   }
 
-  auth.onAuthStateChanged((user) => {
-    const authNavLink = document.getElementById("authNavLink");
-    const logoutLink = document.getElementById("logoutLink");
+ auth.onAuthStateChanged((user) => {
+  const authNavLink = document.getElementById("authNavLink");
+  const logoutLink = document.getElementById("logoutLink");
+  const mobileAuthLink = document.getElementById("mobileAuthLink");
+  const mobileLogoutLink = document.getElementById("mobileLogoutLink");
 
-    if (user) {
-      const email = user.email || "Usuario";
-      const nombreCorto = email.split("@")[0];
-      authNavLink.textContent = "Hola, " + nombreCorto;
-      authNavLink.onclick = function () { openAuth(); };
-      logoutLink.style.display = "inline-block";
-    } else {
-      authNavLink.textContent = "Mi cuenta";
-      authNavLink.onclick = function () { openAuth(); };
-      logoutLink.style.display = "none";
-    }
-  });
+  if (user) {
+    const email = user.email || "Usuario";
+    const nombreCorto = email.split("@")[0];
+    const textoUsuario = "Hola, " + nombreCorto;
+
+    authNavLink.textContent = textoUsuario;
+    mobileAuthLink.textContent = textoUsuario;
+
+    authNavLink.onclick = function () { openAuth(); };
+    mobileAuthLink.onclick = function () { openAuth(); closeMobileMenu(); };
+
+    logoutLink.style.display = "inline-block";
+    mobileLogoutLink.style.display = "block";
+  } else {
+    authNavLink.textContent = "Mi cuenta";
+    mobileAuthLink.textContent = "Mi cuenta";
+
+    authNavLink.onclick = function () { openAuth(); };
+    mobileAuthLink.onclick = function () { openAuth(); closeMobileMenu(); };
+
+    logoutLink.style.display = "none";
+    mobileLogoutLink.style.display = "none";
+  }
+});
 </script>
 </body>
 </html>
