@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S77MHBCQ5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4S77MHBCQ5');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impacto social | Griden</title>
+
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="application-name" content="Griden">
+  <meta name="apple-mobile-web-app-title" content="Griden">
+  <meta name="title" content="Impacto social | Griden">
+  <meta name="description" content="Conoce el compromiso social de Griden y cómo destinamos parte de nuestras ganancias a iniciativas de impacto positivo.">
+
+  <meta property="og:site_name" content="Griden">
+  <meta property="og:title" content="Impacto social | Griden">
+  <meta property="og:description" content="Conoce el compromiso social de Griden y cómo destinamos parte de nuestras ganancias a iniciativas de impacto positivo.">
+  <meta property="og:url" content="https://www.gridenbolivia.com/impacto-social.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root{
+      --primary:#0f172a;
+      --accent:#2563eb;
+      --accent-soft:#dbeafe;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --bg:#ffffff;
+      --bg-soft:#f8fafc;
+      --card:#ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 4px;
+    }
+
+    .brand-text h1 {
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover,
+    .active-link {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-size: 24px;
+      line-height: 1;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      display: none;
+      z-index: 998;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -320px;
+      width: 290px;
+      max-width: 85vw;
+      height: 100vh;
+      background: white;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+      z-index: 999;
+      transition: left 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-menu.active {
+      left: 0;
+    }
+
+    .mobile-menu-overlay.active {
+      display: block;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 22px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+
+    .mobile-menu-header strong {
+      font-size: 22px;
+      color: var(--accent);
+    }
+
+    .mobile-menu-header span {
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .mobile-close {
+      border: none;
+      background: transparent;
+      font-size: 28px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
+    }
+
+    .mobile-menu-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 14px 20px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .mobile-menu-links a:hover {
+      background: var(--bg-soft);
+      color: var(--accent);
+    }
+
+    .page-hero {
+      padding: 90px 0 60px;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.08), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .page-hero h2 {
+      font-size: 58px;
+      line-height: 1.08;
+      margin-bottom: 20px;
+      color: var(--primary);
+      max-width: 900px;
+    }
+
+    .page-hero p {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 850px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title h3 {
+      font-size: 38px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 850px;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      margin-top: 38px;
+      align-items: start;
+    }
+
+    .impact-text {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .info-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
+      margin-bottom: 16px;
+    }
+
+    .info-card h4 {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .areas-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .area-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.05);
+    }
+
+    .area-card h4 {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .area-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      margin-top: 40px;
+    }
+
+    .highlight-box h3 {
+      font-size: 34px;
+      margin-bottom: 14px;
+    }
+
+    .highlight-box p {
+      font-size: 18px;
+      color: #cbd5e1;
+      max-width: 900px;
+    }
+
+    .footer-links-section {
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      padding: 60px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1.2fr 1fr;
+      gap: 34px;
+    }
+
+    .footer-col h4 {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .footer-col a {
+      display: block;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 8px;
+      transition: 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-col p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .footer-socials a {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    .footer-bottom-line {
+      margin-top: 28px;
+      border-top: 1px solid #cbd5e1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px 20px;
+      background: var(--primary);
+      color: #cbd5e1;
+      margin-top: 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .areas-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .page-hero h2 {
+        font-size: 46px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .impact-grid,
+      .areas-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .page-hero h2 {
+        font-size: 38px;
+      }
+
+      .brand-text h1 {
+        font-size: 20px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="Griden_Logo.png" alt="Griden Logo">
+        <div class="brand-text">
+          <h1>Griden</h1>
+          <span>Energía y Tecnología</span>
+        </div>
+      </div>
+
+      <button class="menu-toggle" onclick="openMobileMenu()" aria-label="Abrir menú">☰</button>
+
+      <nav class="desktop-nav">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#catalogo">Productos</a>
+        <a href="index.html#solarrate">SolarRate</a>
+        <a href="conoce.html">Nosotros</a>
+        <a href="impacto-social.html" class="active-link">Impacto social</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a href="javascript:void(0)" class="active-link">Mi cuenta</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+
+  <aside id="mobileMenu" class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div>
+        <strong>Griden</strong><br>
+        <span>Energía y Tecnología</span>
+      </div>
+      <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Cerrar menú">×</button>
+    </div>
+
+    <div class="mobile-menu-links">
+      <a href="index.html#inicio" onclick="closeMobileMenu()">Inicio</a>
+      <a href="index.html#servicios" onclick="closeMobileMenu()">Servicios</a>
+      <a href="index.html#catalogo" onclick="closeMobileMenu()">Productos</a>
+      <a href="index.html#solarrate" onclick="closeMobileMenu()">SolarRate</a>
+      <a href="conoce.html" onclick="closeMobileMenu()">Nosotros</a>
+      <a href="impacto-social.html" onclick="closeMobileMenu()">Impacto social</a>
+      <a href="index.html#contacto" onclick="closeMobileMenu()">Contacto</a>
+    </div>
+  </aside>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Compromiso social</span>
+      <h2>Tecnología y energía con impacto positivo.</h2>
+      <p>
+        En Griden creemos que el crecimiento empresarial también debe generar valor para la sociedad.
+        Por ello, destinamos el 10% de nuestras ganancias a iniciativas de apoyo social y comunitario.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h3>Nuestro compromiso</h3>
+        <p>
+          Buscamos que cada avance de nuestra empresa no solo impulse soluciones técnicas, sino también
+          acciones concretas de apoyo a personas, comunidades e iniciativas con propósito.
+        </p>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-text">
+          En Griden entendemos la energía y la tecnología como herramientas para mejorar la calidad de vida.
+          Por ello, hemos asumido el compromiso de destinar el 10% de nuestras ganancias a acciones de impacto
+          social, priorizando iniciativas que contribuyan al bienestar, la educación, el desarrollo comunitario
+          y el acceso a oportunidades.
+
+          <br><br>
+
+          Este compromiso forma parte de la identidad de nuestra empresa y refleja nuestra visión de construir
+          una marca con propósito, responsabilidad y valor compartido.
+        </div>
+
+        <div>
+          <div class="info-card">
+            <h4>10% de nuestras ganancias</h4>
+            <p>
+              Destinado a acciones de impacto social y apoyo comunitario como parte del compromiso de Griden.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>Transparencia</h4>
+            <p>
+              Nuestra intención es desarrollar esta iniciativa de manera seria, sostenible y alineada con el crecimiento real de la empresa.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>Visión de largo plazo</h4>
+            <p>
+              Queremos que este compromiso social se consolide como una parte permanente de la identidad de Griden.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Crecer también significa aportar.</h3>
+        <p>
+          Nuestro objetivo no es solo ofrecer soluciones en energía, electromovilidad e ingeniería, sino también
+          convertir el crecimiento de Griden en una oportunidad para generar impacto positivo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f8fafc; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0;">
+    <div class="container">
+      <div class="section-title">
+        <h3>Áreas de apoyo</h3>
+        <p>
+          Estas son algunas de las líneas en las que Griden buscará enfocar su aporte social.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+        <div class="area-card">
+          <h4>Educación</h4>
+          <p>
+            Apoyo a iniciativas formativas, materiales educativos o actividades que impulsen oportunidades de aprendizaje.
+          </p>
+        </div>
+
+        <div class="area-card">
+          <h4>Comunidad</h4>
+          <p>
+            Acciones que contribuyan al bienestar de personas o grupos en situación de necesidad o vulnerabilidad.
+          </p>
+        </div>
+
+        <div class="area-card">
+          <h4>Tecnología y energía</h4>
+          <p>
+            Apoyo a iniciativas vinculadas al acceso, difusión o aprovechamiento responsable de la tecnología y la energía.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-links-section">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Sección Blog</h4>
+          <a href="blog.html#solar">Tendencias en energía solar</a>
+          <a href="blog.html#paneles">¿Cuántos paneles solares necesito?</a>
+          <a href="blog.html#ahorro">Ahorro de energía en hogares y empresas</a>
+          <a href="blog.html#electromovilidad">Electromovilidad en Bolivia</a>
+          <a href="blog.html#gd">Generación distribuida en Bolivia</a>
+          <a href="blog.html#automatizacion">Automatización industrial aplicada</a>
+          <a href="blog.html#noticias">Noticias y novedades de Griden</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atención al cliente</h4>
+          <a href="index.html#contacto">Solicitar información</a>
+          <a href="https://wa.me/59169969051" target="_blank">Contacto por WhatsApp</a>
+          <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sobre Griden</h4>
+          <p>
+            Griden es una empresa orientada a soluciones en energía, electromovilidad,
+            ingeniería eléctrica y tecnología, con enfoque en asesoramiento técnico,
+            importación y desarrollo de proyectos aplicados en Bolivia.
+          </p>
+
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/gridenenergia/" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/gridenbo/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@griden.energa/" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/griden-bolivia/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Información</h4>
+          <a href="conoce.html">Conoce Griden</a>
+          <a href="impacto-social.html">Impacto social</a>
+          <a href="trabaja.html">Trabaja con nosotros</a>
+          <a href="terminos.html">Términos y condiciones</a>
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="cookies.html">Política de cookies</a>
+          <a href="reclamaciones.html">Libro de reclamaciones</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-line"></div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Griden · Energía · Tecnología · Soluciones
+  </footer>
+
+  <script>
+    function openMobileMenu() {
+      document.getElementById("mobileMenu").classList.add("active");
+      document.getElementById("mobileMenuOverlay").classList.add("active");
+    }
+
+    function closeMobileMenu() {
+      document.getElementById("mobileMenu").classList.remove("active");
+      document.getElementById("mobileMenuOverlay").classList.remove("active");
+    }
+  </script>
+
+</body>
+</html>
