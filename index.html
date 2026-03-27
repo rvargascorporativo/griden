@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
+<head>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S77MHBCQ5"></script>
   <script>
@@ -14,36 +14,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Griden | Energía y Tecnología</title>
 
-<!-- FAVICON -->
-<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- SEO + NOMBRE DE SITIO -->
-<meta name="application-name" content="Griden">
-<meta name="apple-mobile-web-app-title" content="Griden">
-<meta name="title" content="Griden | Energía y Tecnología">
-<meta name="description" content="Soluciones en energía solar, electromovilidad y sistemas eléctricos en Bolivia.">
+  <!-- SEO + NOMBRE DE SITIO -->
+  <meta name="application-name" content="Griden">
+  <meta name="apple-mobile-web-app-title" content="Griden">
+  <meta name="title" content="Griden | Energía y Tecnología">
+  <meta name="description" content="Soluciones en energía solar, electromovilidad y sistemas eléctricos en Bolivia.">
 
-<!-- Open Graph -->
-<meta property="og:site_name" content="Griden">
-<meta property="og:title" content="Griden | Energía y Tecnología">
-<meta property="og:description" content="Soluciones en energía solar, electromovilidad y sistemas eléctricos en Bolivia.">
-<meta property="og:url" content="https://www.gridenbolivia.com">
-<meta property="og:type" content="website">
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Griden">
+  <meta property="og:title" content="Griden | Energía y Tecnología">
+  <meta property="og:description" content="Soluciones en energía solar, electromovilidad y sistemas eléctricos en Bolivia.">
+  <meta property="og:url" content="https://www.gridenbolivia.com">
+  <meta property="og:type" content="website">
 
-<!-- STRUCTURED DATA (MUY IMPORTANTE) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Griden",
-  "url": "https://www.gridenbolivia.com",
-  "logo": "https://www.gridenbolivia.com/Griden_Logo.png"
-}
-</script>
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Griden",
+    "url": "https://www.gridenbolivia.com",
+    "logo": "https://www.gridenbolivia.com/Griden_Logo.png"
+  }
+  </script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     * {
       box-sizing: border-box;
@@ -150,21 +151,6 @@
       font-weight: 700;
     }
 
-    .hero {
-      background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.08), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      padding: 90px 0 70px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 48px;
-      align-items: center;
-    }
-
     .pill {
       display: inline-block;
       padding: 10px 18px;
@@ -175,21 +161,6 @@
       font-size: 14px;
       margin-bottom: 24px;
       font-weight: 600;
-    }
-
-    .hero h2 {
-      font-size: 56px;
-      line-height: 1.08;
-      margin-bottom: 22px;
-      color: var(--primary);
-      max-width: 650px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 19px;
-      margin-bottom: 30px;
-      max-width: 700px;
     }
 
     .buttons {
@@ -218,26 +189,10 @@
       transform: translateY(-2px);
     }
 
-   .btn-whatsapp {
-  background: #22c55e;
-  color: white;
-}
-    .trust {
-  margin-top: 22px;
-  font-size: 15px;
-  color: white;
-  opacity: 0.92;
-  display: block;
-}
-
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 420px;
-      object-fit: cover;
-      border-radius: 26px;
-      box-shadow: 0 20px 50px rgba(15,23,42,0.10);
-      display: block;
+    .btn-whatsapp {
+      background: #22c55e;
+      color: white;
+      box-shadow: 0 10px 25px rgba(34,197,94,0.28);
     }
 
     section {
@@ -766,6 +721,101 @@
       color: var(--accent);
     }
 
+    /* HERO VIDEO */
+    .hero-video {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    .hero-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      color: white;
+      padding-top: 140px;
+      padding-bottom: 80px;
+      max-width: 760px;
+      margin-left: 0;
+      margin-right: auto;
+      padding-left: 40px;
+    }
+
+    .hero-content h2,
+    .hero-content p,
+    .hero-content .pill,
+    .hero-content .trust {
+      color: white;
+    }
+
+    .hero-content .pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .hero-content h2 {
+      font-size: 58px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+
+    .hero-content h2 strong {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .hero-content p {
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    .trust {
+      margin-top: 22px;
+      font-size: 15px;
+      color: white;
+      opacity: 0.92;
+      display: block;
+      line-height: 1.6;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .fade-up.delay {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 1024px) {
       .catalogo {
         grid-template-columns: repeat(2, 1fr);
@@ -776,118 +826,17 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero h2 {
-        font-size: 46px;
+      .hero-content h2 {
+        font-size: 50px;
       }
     }
 
-/* HERO VIDEO */
-
-.hero-video {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.hero-bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  z-index: 2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  color: white;
-  padding-top: 140px;
-  padding-bottom: 80px;
-  max-width: 760px;
-  margin-left: 0;
-  margin-right: auto;
-  padding-left: 40px;
-}
-.hero-content h2,
-.hero-content p,
-.hero-content .pill,
-.hero-content .trust {
-  color: white;
-}
-   .hero-content h2 strong {
-  color: #16a34a;
-  font-weight: 700;
-}
-
-.hero-content .pill {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.25);
-}
-
-@media (max-width: 768px) {
-  .hero-video {
-    min-height: 85vh;
-  }
-
-  .hero-bg-video {
-    display: block;
-  }
-
-   @media (max-width: 768px) {
-  .hero-content {
-  padding-top: 90px;
-  padding-bottom: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.hero-content h2 {
-  font-size: 40px;
-  line-height: 1.15;
-}
-
-  .hero-content h2 {
-  font-size: 58px;
-  line-height: 1.08;
-  margin-bottom: 18px;
-  max-width: 760px;
-}
-
-  .hero-content p {
-    font-size: 16px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .buttons a {
-    text-align: center;
-  }
-}
-}   
     @media (max-width: 860px) {
-      .hero-grid,
       .about-grid,
       .contact-grid,
       .services-grid,
       .catalogo,
       .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trust {
         grid-template-columns: 1fr;
       }
 
@@ -897,14 +846,6 @@
 
       .menu-toggle {
         display: inline-block;
-      }
-
-      .hero h2 {
-        font-size: 38px;
-      }
-
-      .hero-visual img {
-        min-height: 280px;
       }
 
       .brand-text h1 {
@@ -924,22 +865,50 @@
         font-size: 17px;
       }
     }
-   .fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
 
-.fade-up.delay {
-  animation-delay: 0.3s;
-}
+    @media (max-width: 768px) {
+      .hero-video {
+        min-height: 85vh;
+      }
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      .hero-bg-video {
+        display: block;
+      }
+
+      .hero-content {
+        padding-top: 90px;
+        padding-bottom: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 100%;
+      }
+
+      .hero-content h2 {
+        font-size: 36px;
+        line-height: 1.12;
+        margin-bottom: 16px;
+        max-width: 100%;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+        max-width: 100%;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .buttons a {
+        text-align: center;
+      }
+
+      .trust {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
   </style>
 </head>
 <body>
@@ -993,37 +962,35 @@
   </aside>
 
   <section id="inicio" class="hero-video">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
+      <source src="video/griden.mp4" type="video/mp4">
+    </video>
 
-  <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
-    <source src="video/griden.mp4" type="video/mp4">
-  </video>
+    <div class="hero-overlay"></div>
 
-  <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="pill fade-up">Soluciones en energía y electromovilidad</div>
 
-  <div class="container hero-content">
+      <h2 class="fade-up delay">
+        Reduce tus costos eléctricos<br>
+        <strong>y moderniza tu energía con soluciones inteligentes</strong>
+      </h2>
 
-  <div class="pill fade-up">Soluciones en energía y electromovilidad</div>
+      <p class="fade-up delay">
+        En Griden importamos, diseñamos e implementamos soluciones en energía solar,
+        electromovilidad y sistemas eléctricos para hogares, empresas e industrias en Bolivia.
+      </p>
 
-<h2 class="fade-up delay">
-  Reduce tus costos eléctricos<br>
-  <strong>y moderniza tu energía con soluciones inteligentes</strong>
-</h2>
+      <div class="buttons fade-up delay">
+        <a class="btn-primary" href="#catalogo">Ver productos</a>
+        <a class="btn-whatsapp" href="https://wa.me/59169969051" target="_blank">Cotizar por WhatsApp</a>
+      </div>
 
-<p class="fade-up delay">
-  En Griden importamos, diseñamos e implementamos soluciones en energía solar,
-  electromovilidad y sistemas eléctricos para hogares, empresas e industrias en Bolivia.
-</p>
-
-<div class="buttons fade-up delay">
-  <a class="btn-primary" href="#catalogo">Ver productos</a>
-  <a class="btn-whatsapp" href="https://wa.me/59169969051" target="_blank">Cotizar por WhatsApp</a>
-</div>
-
-<div class="trust fade-up delay">
-  • Ingeniería especializada • Equipos importados • Atención en Bolivia
-</div>
-
-</section>
+      <div class="trust fade-up delay">
+        • Ingeniería especializada • Equipos importados • Atención en Bolivia
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="container">
@@ -1195,7 +1162,7 @@
 
         <div class="producto">
           <a href="automatizacion.html" class="producto-link">
-            <img src="https://es.kexunelectric.com/upload/8230/20250421170702184877.webp">
+            <img src="https://es.kexunelectric.com/upload/8230/20250421170702184877.webp" alt="Sistemas de automatización">
             <div class="producto-content">
               <small>Control y monitoreo</small>
               <h4>Sistemas de automatización</h4>
