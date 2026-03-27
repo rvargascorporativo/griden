@@ -465,6 +465,140 @@
         letter-spacing: 1.5px;
       }
     }
+    .page-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.hero-badge {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.10);
+  max-width: 260px;
+}
+
+.hero-badge strong {
+  display: block;
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.hero-badge span {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.impact-main-image {
+  margin-top: 28px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+}
+
+.impact-main-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.area-image {
+  width: calc(100% + 48px);
+  margin: -24px -24px 18px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.image-strip {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.image-strip img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+}
+
+@media (max-width: 1024px) {
+  .page-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual img {
+    height: 380px;
+  }
+
+  .image-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-visual img {
+    height: 300px;
+    border-radius: 22px;
+  }
+
+  .impact-main-image img {
+    height: 260px;
+  }
+
+  .area-image {
+    height: 170px;
+  }
+
+  .hero-badge {
+    position: static;
+    margin-top: 14px;
+    max-width: 100%;
+  }
+}
   </style>
 </head>
 <body>
@@ -517,15 +651,27 @@
   </aside>
 
   <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">Compromiso social</span>
-      <h2>Tecnología y energía con impacto positivo.</h2>
-      <p>
-        En Griden creemos que el crecimiento empresarial también debe generar valor para la sociedad.
-        Por ello, destinamos el 10% de nuestras ganancias a iniciativas de apoyo social y comunitario.
-      </p>
+  <div class="container">
+    <div class="page-hero-grid">
+      <div>
+        <span class="eyebrow">Compromiso social</span>
+        <h2>Tecnología y energía con impacto positivo.</h2>
+        <p>
+          En Griden creemos que el crecimiento empresarial también debe generar valor para la sociedad.
+          Por ello, destinamos el 10% de nuestras ganancias a iniciativas de apoyo social y comunitario.
+        </p>
+      </div>
+
+      <div class="hero-visual">
+        <img src="img/impacto-hero.jpg" alt="Impacto social Griden">
+        <div class="hero-badge">
+          <strong>10%</strong>
+          <span>de nuestras ganancias destinado a iniciativas de apoyo social y comunitario.</span>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section>
     <div class="container">
@@ -537,42 +683,56 @@
         </p>
       </div>
 
-      <div class="impact-grid">
-        <div class="impact-text">
-          En Griden entendemos la energía y la tecnología como herramientas para mejorar la calidad de vida.
-          Por ello, hemos asumido el compromiso de destinar el 10% de nuestras ganancias a acciones de impacto
-          social, priorizando iniciativas que contribuyan al bienestar, la educación, el desarrollo comunitario
-          y el acceso a oportunidades.
+     <div class="impact-grid">
+  <div>
+    <div class="impact-text">
+      En Griden entendemos la energía y la tecnología como herramientas para mejorar la calidad de vida.
+      Por ello, hemos asumido el compromiso de destinar el 10% de nuestras ganancias a acciones de impacto
+      social, priorizando iniciativas que contribuyan al bienestar, la educación, el desarrollo comunitario
+      y el acceso a oportunidades.
 
-          <br><br>
+      <br><br>
 
-          Este compromiso forma parte de la identidad de nuestra empresa y refleja nuestra visión de construir
-          una marca con propósito, responsabilidad y valor compartido.
-        </div>
+      Este compromiso forma parte de la identidad de nuestra empresa y refleja nuestra visión de construir
+      una marca con propósito, responsabilidad y valor compartido.
+    </div>
 
-        <div>
-          <div class="info-card">
-            <h4>10% de nuestras ganancias</h4>
-            <p>
-              Destinado a acciones de impacto social y apoyo comunitario como parte del compromiso de Griden.
-            </p>
-          </div>
+    <div class="impact-main-image">
+      <img src="img/impacto-compromiso.jpg" alt="Compromiso social y comunitario de Griden">
+    </div>
+  </div>
 
-          <div class="info-card">
-            <h4>Transparencia</h4>
-            <p>
-              Nuestra intención es desarrollar esta iniciativa de manera seria, sostenible y alineada con el crecimiento real de la empresa.
-            </p>
-          </div>
+       <div>
+  <div class="info-card">
+    <div class="info-card-icon">
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <h4>10% de nuestras ganancias</h4>
+    <p>
+      Destinado a acciones de impacto social y apoyo comunitario como parte del compromiso de Griden.
+    </p>
+  </div>
 
-          <div class="info-card">
-            <h4>Visión de largo plazo</h4>
-            <p>
-              Queremos que este compromiso social se consolide como una parte permanente de la identidad de Griden.
-            </p>
-          </div>
-        </div>
-      </div>
+  <div class="info-card">
+    <div class="info-card-icon">
+      <i class="fas fa-shield-alt"></i>
+    </div>
+    <h4>Transparencia</h4>
+    <p>
+      Nuestra intención es desarrollar esta iniciativa de manera seria, sostenible y alineada con el crecimiento real de la empresa.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-icon">
+      <i class="fas fa-seedling"></i>
+    </div>
+    <h4>Visión de largo plazo</h4>
+    <p>
+      Queremos que este compromiso social se consolide como una parte permanente de la identidad de Griden.
+    </p>
+  </div>
+</div>
 
       <div class="highlight-box">
         <h3>Crecer también significa aportar.</h3>
@@ -593,28 +753,31 @@
         </p>
       </div>
 
-      <div class="areas-grid">
-        <div class="area-card">
-          <h4>Educación</h4>
-          <p>
-            Apoyo a iniciativas formativas, materiales educativos o actividades que impulsen oportunidades de aprendizaje.
-          </p>
-        </div>
+    <div class="areas-grid">
+  <div class="area-card">
+    <img src="img/impacto-educacion.jpg" alt="Apoyo educativo" class="area-image">
+    <h4>Educación</h4>
+    <p>
+      Apoyo a iniciativas formativas, materiales educativos o actividades que impulsen oportunidades de aprendizaje.
+    </p>
+  </div>
 
-        <div class="area-card">
-          <h4>Comunidad</h4>
-          <p>
-            Acciones que contribuyan al bienestar de personas o grupos en situación de necesidad o vulnerabilidad.
-          </p>
-        </div>
+  <div class="area-card">
+    <img src="img/impacto-comunidad.jpg" alt="Apoyo comunitario" class="area-image">
+    <h4>Comunidad</h4>
+    <p>
+      Acciones que contribuyan al bienestar de personas o grupos en situación de necesidad o vulnerabilidad.
+    </p>
+  </div>
 
-        <div class="area-card">
-          <h4>Tecnología y energía</h4>
-          <p>
-            Apoyo a iniciativas vinculadas al acceso, difusión o aprovechamiento responsable de la tecnología y la energía.
-          </p>
-        </div>
-      </div>
+  <div class="area-card">
+    <img src="img/impacto-tecnologia.jpg" alt="Tecnología y energía" class="area-image">
+    <h4>Tecnología y energía</h4>
+    <p>
+      Apoyo a iniciativas vinculadas al acceso, difusión o aprovechamiento responsable de la tecnología y la energía.
+    </p>
+  </div>
+</div>
     </div>
   </section>
 
