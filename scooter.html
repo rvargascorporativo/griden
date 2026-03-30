@@ -15,7 +15,11 @@
       --success:#16a34a;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -91,6 +95,12 @@
       align-items: start;
     }
 
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .main-image {
       width: 100%;
       border-radius: 24px;
@@ -132,31 +142,31 @@
       margin-bottom: 14px;
     }
 
-   .price {
-  font-size: 30px;
-  color: var(--success);
-  font-weight: 700;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+    .price {
+      font-size: 30px;
+      color: var(--success);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-.price .iva {
-  font-size: 14px;
-  color: var(--muted);
-  font-weight: 500;
-  line-height: 1;
-}
+    .price .iva {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1;
+    }
 
-.price-note {
-  margin-top: 0;
-  margin-bottom: 18px;
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 600;
-}
+    .price-note {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .product-info p {
       color: var(--muted);
@@ -165,6 +175,7 @@
     }
 
     .specs {
+      width: 100%;
       background: var(--bg-soft);
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -223,6 +234,11 @@
       .thumb-grid {
         grid-template-columns: 1fr 1fr 1fr;
       }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -243,28 +259,31 @@
 
   <section class="product-page">
     <div class="container product-grid">
-      <div>
+
+      <div class="product-gallery">
         <img class="main-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_637478-MLC46129506402_052021-F.webp" alt="Scooter eléctrico">
 
         <div class="thumb-grid">
-          <img src="https://media.istockphoto.com/id/1276620635/photo/elegant-businesswoman-riding-electric-scooter.jpg?s=612x612&w=0&k=20&c=hD_zAkdaR4fFoQBYsKNxJSYxeEbBujOQlsjxdHx_1e8=">
-          <img src="https://media.istockphoto.com/id/1316213713/photo/electric-scooter-parked-on-tiled-cobblestone-pavement-closeup-detail-on-rear-wheel-with-disc.jpg?s=612x612&w=0&k=20&c=uuWhfGZixxcpLM34ETcmE7UU_E8gS2fAcKGo2pcYs_s=">
-          <img src="https://media.istockphoto.com/id/1176410189/photo/electric-scooter.jpg?s=612x612&w=0&k=20&c=YdERFfS-Vo4vl6TKcNJ7BAHOwGWqjvlC-Oaj7XKwfNU=">
+          <img src="https://media.istockphoto.com/id/1276620635/photo/elegant-businesswoman-riding-electric-scooter.jpg?s=612x612&w=0&k=20&c=hD_zAkdaR4fFoQBYsKNxJSYxeEbBujOQlsjxdHx_1e8=" alt="Vista 1 scooter">
+          <img src="https://media.istockphoto.com/id/1316213713/photo/electric-scooter-parked-on-tiled-cobblestone-pavement-closeup-detail-on-rear-wheel-with-disc.jpg?s=612x612&w=0&k=20&c=uuWhfGZixxcpLM34ETcmE7UU_E8gS2fAcKGo2pcYs_s=" alt="Vista 2 scooter">
+          <img src="https://media.istockphoto.com/id/1176410189/photo/electric-scooter.jpg?s=612x612&w=0&k=20&c=YdERFfS-Vo4vl6TKcNJ7BAHOwGWqjvlC-Oaj7XKwfNU=" alt="Vista 3 scooter">
         </div>
       </div>
 
-      <div class="tag">Electromovilidad</div>
-<h2>Scooter eléctrico</h2>
+      <div class="product-info">
+        <div class="tag">Electromovilidad</div>
 
-<div class="price">
-  <span class="amount">Bs3.360</span>
-  <span class="iva">(s/IVA)</span>
-</div>
+        <h2>Scooter eléctrico</h2>
 
-<div class="price-note">
-  5% de descuento por compra en línea
-</div>
-       
+        <div class="price">
+          <span class="amount">Bs3.360</span>
+          <span class="iva">(s/IVA)</span>
+        </div>
+
+        <div class="price-note">
+          5% de descuento por compra en línea
+        </div>
+
         <p>
           Solución de movilidad eléctrica para desplazamientos urbanos,
           con operación silenciosa y bajo costo de uso.
@@ -273,13 +292,13 @@
         <div class="specs">
           <h3>Descripción del producto</h3>
           <ul>
-            <li>Potencia 350W, motor de 8,5"(en rueda delantera)</li>
-            <li>Batería de Litio 36V 10,40Ah</li>
-            <li>Velocidad máxima 25km/h; autonomía de 20km</li>
+            <li>Potencia 350W, motor de 8,5" (en rueda delantera)</li>
+            <li>Batería de litio 36V 10,40Ah</li>
+            <li>Velocidad máxima 25 km/h; autonomía de 20 km</li>
             <li>Pendiente máxima 15°</li>
-            <li>Carga permitida 120kg</li>
+            <li>Carga permitida 120 kg</li>
             <li>Peso 16,65 kg</li>
-            <li>Medidas 108x40x110 cm3</li>
+            <li>Medidas 108 × 40 × 110 cm</li>
             <li>Año de fabricación: 2026</li>
           </ul>
         </div>
@@ -289,6 +308,7 @@
           <a class="btn btn-primary" href="index.html#contacto">Solicitar información</a>
         </div>
       </div>
+
     </div>
   </section>
 </body>
