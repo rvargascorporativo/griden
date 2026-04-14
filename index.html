@@ -737,7 +737,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 85% center;
       z-index: 1;
     }
 
@@ -817,6 +816,43 @@
       }
     }
 
+    /* ===== ESTADÍSTICAS ===== */
+    .stats-section {
+      background: #f1f5f9;
+      padding: 70px 0;
+      margin-top: 40px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 34px;
+    }
+
+    .stat-box {
+      padding: 20px 30px;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .stat-box:last-child {
+      border-right: none;
+    }
+
+    .counter {
+      font-size: 80px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .stat-box p {
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
     @media (max-width: 1024px) {
       .catalogo {
         grid-template-columns: repeat(2, 1fr);
@@ -829,6 +865,19 @@
 
       .hero-content h2 {
         font-size: 50px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .stat-box {
+        border-right: none;
+      }
+
+      .counter {
+        font-size: 60px;
       }
     }
 
@@ -874,7 +923,6 @@
 
       .hero-bg-video {
         display: block;
-        object-position: center center;
       }
 
       .hero-content {
@@ -909,6 +957,12 @@
       .trust {
         font-size: 14px;
         line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -991,44 +1045,7 @@
       </div>
     </div>
   </section>
-</section>  <!-- FIN DEL HERO -->
 
-.stats-section {
-  background: #f1f5f9;
-  padding: 70px 0;
-  margin-top: 40px;
-}
-<section class="stats-section">
-  <div class="container">
-    <div class="section-title">
-      <small>Griden en cifras</small>
-      <h3>Resultados que reflejan capacidad técnica y crecimiento</h3>
-    </div>
-
-    <div class="stats-grid">
-      <div class="stat-box">
-        <h2 class="counter" data-target="97" data-format="plus">0</h2>
-        <p>Ventas concretadas con clientes satisfechos.</p>
-      </div>
-
-      <div class="stat-box">
-        <h2 class="counter" data-target="86" data-format="plus">0</h2>
-        <p>Proyectos y soluciones técnicas.</p>
-      </div>
-
-      <div class="stat-box">
-        <h2 class="counter" data-target="72" data-format="plus">0</h2>
-        <p>Meses de desarrollo y crecimiento.</p>
-      </div>
-
-      <div class="stat-box">
-        <h2 class="counter" data-target="4" data-format="plus">0</h2>
-        <p>Líneas de negocio activas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-  
   <section>
     <div class="container">
       <div class="section-title">
@@ -1556,6 +1573,41 @@
         mobileLogoutLink.style.display = "none";
       }
     });
+  </script>
+
+  <script>
+    function formatNumber(value, format) {
+      if (format === "k") return Math.round(value / 1000) + "K";
+      if (format === "plus") return "+" + Math.round(value);
+      return Math.round(value);
+    }
+
+    function animateCounter(el, duration = 2000) {
+      if (el.dataset.animated) return;
+      el.dataset.animated = true;
+
+      const target = +el.dataset.target;
+      const format = el.dataset.format || "plain";
+      const start = performance.now();
+
+      function update(t) {
+        const p = Math.min((t - start) / duration, 1);
+        const val = target * (1 - Math.pow(1 - p, 3));
+        el.textContent = formatNumber(val, format);
+        if (p < 1) requestAnimationFrame(update);
+        else el.textContent = formatNumber(target, format);
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) animateCounter(e.target);
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll(".counter").forEach(el => obs.observe(el));
   </script>
 
 </body>
