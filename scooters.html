@@ -133,8 +133,27 @@ align-items:center
 .cta{padding:70px 0;background:radial-gradient(circle at 10% 20%,rgba(56,189,248,.22),transparent 28%),linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff}.cta-box{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.cta h3{font-size:36px;line-height:1.15;margin-bottom:10px}.cta p{color:#dbeafe;max-width:760px}
 .footer-links-section{background:#f8fafc;border-top:1px solid var(--border);padding:50px 0 18px}.footer-grid{display:grid;grid-template-columns:1.1fr 1fr 1.2fr 1fr;gap:34px}.footer-col h4{font-size:17px;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #cbd5e1}.footer-col a{display:block;text-decoration:none;color:var(--muted);font-size:14px;margin-bottom:7px}.footer-col p{color:var(--muted);font-size:14px;line-height:1.7}.footer-socials{display:flex;gap:12px;margin-top:18px}.footer-socials a{width:38px;height:38px;border-radius:999px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none}.footer-bottom-line{margin-top:28px;border-top:1px solid #cbd5e1}footer{text-align:center;padding:34px 20px;background:var(--primary);color:#cbd5e1;font-size:14px}
 .auth-modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;justify-content:center;align-items:center;padding:20px;z-index:999}.auth-box{background:#fff;width:100%;max-width:390px;border-radius:24px;padding:28px;box-shadow:0 25px 60px rgba(15,23,42,.25);position:relative}.auth-box h3{font-size:28px;margin-bottom:8px}.auth-subtitle{color:var(--muted);font-size:14px;margin-bottom:20px}.auth-box input{width:100%;margin-bottom:12px;padding:14px 16px;border-radius:14px;border:1px solid var(--border);font-size:14px}.auth-actions{display:flex;flex-direction:column;gap:10px}.auth-box button{width:100%;padding:13px 16px;border-radius:14px;border:0;font-weight:700}.btn-register{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff}.btn-login{background:#e2e8f0;color:var(--primary)}.close-auth{position:absolute;top:14px;right:16px;background:transparent;border:0;font-size:24px;color:#64748b;cursor:pointer;width:auto!important;padding:0!important}
-@media(max-width:1024px){.hero-grid{grid-template-columns:1fr}.grid,.footer-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}.featured{grid-column:span 2}.hero h2{font-size:50px}.cta-box{grid-template-columns:1fr}}
-@media(max-width:860px){.desktop-nav{display:none}.menu-toggle{display:inline-block}.brand h1{font-size:20px}.brand span{font-size:10px;letter-spacing:1.5px}.hero{padding:64px 0 58px}.hero h2{font-size:38px;letter-spacing:-.8px}.hero p{font-size:16px}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}section{padding:62px 0}.grid,.footer-grid,.trust-grid{grid-template-columns:1fr}.featured{grid-column:span 1}.card img{height:225px}.hero-panel img{height:280px}.section-title h3{font-size:30px}.cta h3{font-size:30px}.footer-links-section{padding:38px 0 14px}.footer-col h4{font-size:15px;margin-bottom:10px}.footer-col a{font-size:13px;margin-bottom:6px;line-height:1.35}.footer-col p{font-size:13px;line-height:1.55}}
+
+/* GUÍA TÉCNICA GRATUITA */
+.lead-guide{background:linear-gradient(180deg,#f8fafc 0%,#eef6ff 100%)}
+.lead-guide-box{display:grid;grid-template-columns:.78fr 1.22fr;gap:48px;align-items:center;padding:46px;background:#fff;border:1px solid var(--border);border-radius:32px;box-shadow:0 20px 55px rgba(15,23,42,.10)}
+.guide-cover{position:relative;max-width:350px;min-height:460px;margin:auto;padding:42px 34px;overflow:hidden;border-radius:22px;background:#12262f;color:#fff;box-shadow:0 24px 50px rgba(15,23,42,.25);display:flex;flex-direction:column}
+.guide-cover:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-58px;top:-60px;background:#19a974}
+.guide-cover:after{content:"PDF GRATUITO";position:absolute;right:18px;top:18px;padding:8px 12px;border-radius:999px;background:#fff;color:#12262f;font-size:10px;font-weight:900;letter-spacing:1px}
+.guide-brand{position:relative;z-index:1;font-size:18px;font-weight:900;letter-spacing:.5px}.guide-brand span{display:block;color:#a7f3d0;font-size:9px;letter-spacing:1.5px;margin-top:2px}
+.guide-kicker{position:relative;z-index:1;margin-top:72px;color:#34d399;font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}
+.guide-cover h4{position:relative;z-index:1;font-size:29px;line-height:1.08;margin-top:13px;letter-spacing:-.7px}
+.guide-author{position:relative;z-index:1;margin-top:auto;padding-top:25px;border-top:2px solid #19a974;color:#d1fae5;font-size:11px;font-weight:700}
+.lead-guide-content small{display:inline-block;color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.lead-guide-content h3{font-size:40px;line-height:1.12;margin-bottom:16px;letter-spacing:-.7px}
+.lead-guide-content>p{color:var(--muted);font-size:17px;margin-bottom:20px}
+.lead-benefits{list-style:none;display:grid;gap:11px;margin:22px 0 28px}
+.lead-benefits li{display:flex;gap:10px;color:#334155}.lead-benefits li:before{content:"✓";color:var(--success);font-weight:900}
+.guide-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.btn-guide{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;box-shadow:0 16px 35px rgba(34,197,94,.22)}
+.guide-note{display:block;margin-top:14px;color:#64748b;font-size:13px}
+@media(max-width:1024px){.hero-grid{grid-template-columns:1fr}.grid,.footer-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}.featured{grid-column:span 2}.hero h2{font-size:50px}.cta-box{grid-template-columns:1fr}.lead-guide-box{grid-template-columns:1fr}.guide-cover{max-width:320px}}
+@media(max-width:860px){.desktop-nav{display:none}.menu-toggle{display:inline-block}.brand h1{font-size:20px}.brand span{font-size:10px;letter-spacing:1.5px}.hero{padding:64px 0 58px}.hero h2{font-size:38px;letter-spacing:-.8px}.hero p{font-size:16px}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}section{padding:62px 0}.grid,.footer-grid,.trust-grid{grid-template-columns:1fr}.featured{grid-column:span 1}.card img{height:225px}.hero-panel img{height:280px}.section-title h3{font-size:30px}.cta h3{font-size:30px}.footer-links-section{padding:38px 0 14px}.footer-col h4{font-size:15px;margin-bottom:10px}.footer-col a{font-size:13px;margin-bottom:6px;line-height:1.35}.footer-col p{font-size:13px;line-height:1.55}.lead-guide-box{padding:26px 20px;gap:32px}.guide-cover{min-height:390px;max-width:270px;padding:32px 26px}.guide-cover h4{font-size:24px}.guide-kicker{margin-top:58px}.lead-guide-content h3{font-size:29px}.guide-actions{flex-direction:column;align-items:stretch}}
 </style></head><body>
 
 <header>
@@ -189,6 +208,50 @@ align-items:center
     
   </div>
 </section>
+
+<!-- GUÍA TÉCNICA GRATUITA / GENERADOR DE PROSPECTOS -->
+<section class="lead-guide" id="guia-gratuita">
+  <div class="container">
+    <div class="lead-guide-box">
+
+      <div class="guide-cover" aria-label="Portada de la guía técnica de Griden">
+        <div class="guide-brand">GRIDEN<span>ENERGÍA Y TECNOLOGÍA</span></div>
+        <div class="guide-kicker">Guía de ingeniería</div>
+        <h4>5 puntos eléctricos críticos antes de comprar un scooter eléctrico</h4>
+        <div class="guide-author">Preparada por una ingeniera eléctrica</div>
+      </div>
+
+      <div class="lead-guide-content">
+        <small>Guía técnica gratuita</small>
+        <h3>Compra tu scooter con criterio técnico</h3>
+        <p>Aprende a evaluar batería, motor, autonomía, cargador y garantía antes de invertir. Una guía práctica elaborada desde la ingeniería eléctrica.</p>
+
+        <ul class="lead-benefits">
+          <li>Compara correctamente baterías mediante Wh.</li>
+          <li>Identifica cifras de autonomía poco realistas.</li>
+          <li>Reconoce cargadores y componentes de riesgo.</li>
+          <li>Utiliza un checklist técnico antes de pagar.</li>
+        </ul>
+
+        <div class="guide-actions">
+          <a
+            class="btn btn-guide"
+            href="https://wa.me/59169969051?text=Hola%20Griden%2C%20quiero%20recibir%20la%20gu%C3%ADa%20t%C3%A9cnica%20gratuita%20para%20comprar%20un%20scooter%20el%C3%A9ctrico."
+            target="_blank"
+            rel="noopener"
+            onclick="gtag('event','solicitud_guia_scooter',{'event_category':'Lead Generator','event_label':'WhatsApp'});"
+          >
+            <i class="fa-brands fa-whatsapp"></i> Solicitar guía gratis
+          </a>
+        </div>
+
+        <span class="guide-note">Te la enviaremos gratuitamente por WhatsApp.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="cta">
   <div class="container cta-box">
     <div><h3>¿No sabes qué modelo elegir?</h3><p>Escríbenos y te ayudamos a seleccionar el scooter según tu recorrido, peso, pendiente, autonomía esperada y presupuesto.</p></div>
