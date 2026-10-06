@@ -117,7 +117,35 @@ align-items:center
 @media(max-width:1024px){.hero-grid{grid-template-columns:1fr}.grid,.footer-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}.featured{grid-column:span 2}.hero h2{font-size:50px}.cta-box{grid-template-columns:1fr}}
 @media(max-width:860px){.desktop-nav{display:none}.menu-toggle{display:inline-block}.brand h1{font-size:20px}.brand span{font-size:10px;letter-spacing:1.5px}.hero{padding:64px 0 58px}.hero h2{font-size:38px;letter-spacing:-.8px}.hero p{font-size:16px}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}section{padding:62px 0}.grid,.footer-grid,.trust-grid{grid-template-columns:1fr}.featured{grid-column:span 1}.card img{height:225px}.hero-panel img{height:280px}.section-title h3{font-size:30px}.cta h3{font-size:30px}.footer-links-section{padding:38px 0 14px}.footer-col h4{font-size:15px;margin-bottom:10px}.footer-col a{font-size:13px;margin-bottom:6px;line-height:1.35}.footer-col p{font-size:13px;line-height:1.55}}
 </style>  <link rel="stylesheet" href="griden-theme.css">
-</head><body>
+<style>
+/* Catálogo: portada breve y categorías separadas. */
+.griden-catalog .catalog-hero {min-height:0;padding:52px 0 48px;background:radial-gradient(ellipse at 95% 0%,#173d91 0%,transparent 65%),#0b1730;}
+.griden-catalog .catalog-hero:before {display:none;}
+.griden-catalog .catalog-hero h2 {max-width:820px;font-size:clamp(34px,4vw,50px);line-height:1.12;margin-bottom:16px;}
+.griden-catalog .catalog-hero h2 span {background:none;color:#b8ef38;}
+.griden-catalog .catalog-hero p {max-width:680px;color:#e2e8f0;font-size:17px;}
+.griden-catalog .hero-kicker {padding:0;border:0;background:none;color:#b8ef38;font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;}
+.catalog-shortcuts {display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+.catalog-shortcuts a {display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid #7384a0;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:14px;}
+.catalog-shortcuts a:first-child {background:#b8ef38;color:#0b1730;border-color:#b8ef38;}
+.griden-catalog .catalog-section {padding:56px 0;scroll-margin-top:110px;}
+.griden-catalog #catalogo {background:#f3f7ff;}
+.griden-catalog .catalog-section .grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px;}
+.griden-catalog .catalog-section .card {display:flex;flex-direction:column;}
+.griden-catalog .catalog-section .producto-link {display:flex;flex-direction:column;height:100%;}
+.griden-catalog .catalog-section .card-content {display:flex;flex-direction:column;flex:1;align-items:flex-start;}
+.griden-catalog .catalog-section .card-content p {flex:1;}
+.griden-catalog .catalog-section .card img {height:220px;}
+.griden-catalog .scooter-category img {object-fit:contain;background:#fff;padding:12px;}
+@media(max-width:900px){.griden-catalog .catalog-section .grid {grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){
+ .griden-catalog .catalog-hero {padding:36px 0;}
+ .griden-catalog .catalog-section {padding:38px 0;}
+ .griden-catalog .catalog-section .grid {grid-template-columns:1fr;}
+ .griden-catalog .section-title h3 {font-size:30px;}
+}
+</style>
+</head><body class="griden-catalog">
 
 <header>
   <div class="container nav">
@@ -139,46 +167,22 @@ align-items:center
   </div>
 </aside>
 
-<section class="hero">
-
-  <!-- VIDEO -->
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="/video/e9pro.mp4" type="video/mp4">
-  </video>
-
-  <!-- OVERLAY -->
-  <div class="hero-overlay"></div>
-
-  <div class="container hero-grid">
-    <div>
-      <div class="hero-kicker"><i class="fa-solid fa-layer-group"></i> Catálogo Griden</div>
-      <h2>Productos y soluciones <span>para energía, industria y movilidad</span></h2>
-      <p>Explora nuestras líneas principales: generación distribuida, electromovilidad, automatización, tableros, equipos eléctricos e infraestructura de carga.</p>
-         </div>
-
-  </div>
+<section class="hero catalog-hero">
+ <div class="container">
+  <div class="hero-kicker">Catálogo Griden</div>
+  <h2>Encuentra tu próxima <span>solución eléctrica.</span></h2>
+  <p>Explora equipos de movilidad, energía e industria, con orientación técnica para elegir.</p>
+  <div class="catalog-shortcuts"><a href="#catalogo">Ver productos ↓</a><a href="#ingenieria">Soluciones de ingeniería ↓</a></div>
+ </div>
 </section>
-<section id="catalogo" style="background:linear-gradient(180deg,#fff 0%,#f8fafc 100%)">
-  <div class="container">
-    <div class="section-title"><small>Productos Griden</small><h3>Selecciona una categoría</h3><p>Cada línea tiene su propia página o ficha para revisar detalles, características, opciones de cotización y disponibilidad.</p></div>
-    <div class="grid">
-      <article class="card featured">
-        <div class="card-img"><img src="/images/banner-scooters-griden.png" alt="Electromovilidad Griden"></div>
-        <div class="card-content"><small>Electromovilidad</small><h4>Monopatines eléctricos</h4><p>Línea completa de scooters Griden: Eco, Urban M2, Urban Pro E9 y T4 Max. Ingresa a la página especializada para comparar modelos.</p><a class="producto-boton dark" href="/scooters"><i class="fa-solid fa-charging-station"></i> Ver línea scooters</a></div>
-      </article>
-      <article class="card"><a href="/generacion-distribuida" class="producto-link"><div class="card-img"><img src="https://bepebblex.com/wp-content/uploads/2024/05/inversores-paneles-solares.jpg" alt="Generación distribuida"></div><div class="card-content"><small>Energía solar</small><h4>Generación distribuida</h4><p>Sistemas fotovoltaicos on-grid para hogares, empresas e industrias.</p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-      <article class="card"><a href="/estructuras-paneles" class="producto-link"><div class="card-img"><img src="https://www.cealsa.es/assets/images/textareas/celo-clipado-portico-premontado.jpg" alt="Estructuras para paneles fotovoltaicos"></div><div class="card-content"><small>Generación distribuida</small><h4>Estructuras para paneles fotovoltaicos</h4><p><strong>Desde Bs899</strong></p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-      <article class="card"><a href="/tablero-electrico" class="producto-link"><div class="card-img"><img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1200,h_1200/https://electricidadpractica.com/wp-content/uploads/2025/07/componentes-tablero-electrico.webp" alt="Tablero eléctrico"></div><div class="card-content"><small>Automatización</small><h4>Tablero eléctrico</h4><p>Tableros para protección, distribución, control y automatización.</p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-      <article class="card"><a href="/equipos-industriales" class="producto-link"><div class="card-img"><img src="https://ptgy.ru/upload/iblock/76e/v4yeoil7l3w79m1hc3po4sb86fcm10vb.png" alt="Equipos industriales"></div><div class="card-content"><small>Industria</small><h4>Equipos industriales</h4><p><strong>Desde Bs2.900</strong></p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-      <article class="card"><a href="/automatizacion" class="producto-link"><div class="card-img"><img src="https://es.kexunelectric.com/upload/8230/20250421170702184877.webp" alt="Sistemas de automatización"></div><div class="card-content"><small>Control y monitoreo</small><h4>Sistemas de automatización</h4><p>Soluciones de control, monitoreo, sensores y automatización aplicada.</p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-      <article class="card"><a href="/moto-electrica" class="producto-link"><div class="card-img"><img src="https://exclusivomotos.com/wp-content/uploads/2024/07/P90454047_lowRes_bmw-ce-04-riding-sho.jpg" alt="Moto eléctrica"></div><div class="card-content"><small>Electromovilidad</small><h4>Moto eléctrica</h4><p><strong>Desde Bs6.900</strong></p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-      <article class="card"><a href="/cargador-electrico" class="producto-link"><div class="card-img"><img src="https://blog.guarconsa.com/wp-content/uploads/2022/05/Diseno-sin-titulo-1-1024x696.jpg" alt="Cargador eléctrico"></div><div class="card-content"><small>Electromovilidad</small><h4>Cargador eléctrico</h4><p><strong>Desde Bs5.900</strong></p><span class="producto-boton">Ingresar <i class="fa-solid fa-arrow-right"></i></span></div></a></article>
-    </div>
-  </div>
-</section>
+<section id="catalogo" class="catalog-section"><div class="container"><div class="section-title"><small>Productos Griden</small><h3>¿Qué estás buscando?</h3><p>Selecciona una categoría para ver equipos, características y opciones de cotización.</p></div><div class="grid"><article class="card scooter-category">
+        <div class="card-img"><img loading="lazy" decoding="async" src="/images/eco2.png" alt="Scooter eléctrico ECO desplegado"></div>
+        <div class="card-content"><small>Electromovilidad</small><h4>Scooters eléctricos</h4><p>Compara ECO, M2, E9 PRO y T4 según tu recorrido, autonomía y presupuesto.</p><a class="producto-boton dark" href="/scooters"><i class="fa-solid fa-charging-station"></i> Comparar scooters</a></div>
+      </article><article class="card"><a href="/moto-electrica" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://exclusivomotos.com/wp-content/uploads/2024/07/P90454047_lowRes_bmw-ce-04-riding-sho.jpg" alt="Moto eléctrica"></div><div class="card-content"><small>Electromovilidad</small><h4>Moto eléctrica</h4><p><strong>Desde Bs6.900</strong></p><span class="producto-boton">Ver motos eléctricas <i class="fa-solid fa-arrow-right"></i></span></div></a></article><article class="card"><a href="/cargador-electrico" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://blog.guarconsa.com/wp-content/uploads/2022/05/Diseno-sin-titulo-1-1024x696.jpg" alt="Cargador eléctrico"></div><div class="card-content"><small>Electromovilidad</small><h4>Cargador eléctrico</h4><p><strong>Desde Bs5.900</strong></p><span class="producto-boton">Ver cargadores <i class="fa-solid fa-arrow-right"></i></span></div></a></article><article class="card"><a href="/estructuras-paneles" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://www.cealsa.es/assets/images/textareas/celo-clipado-portico-premontado.jpg" alt="Estructuras para paneles fotovoltaicos"></div><div class="card-content"><small>Generación distribuida</small><h4>Estructuras para paneles fotovoltaicos</h4><p><strong>Desde Bs899</strong></p><span class="producto-boton">Ver estructuras <i class="fa-solid fa-arrow-right"></i></span></div></a></article><article class="card"><a href="/equipos-industriales" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://ptgy.ru/upload/iblock/76e/v4yeoil7l3w79m1hc3po4sb86fcm10vb.png" alt="Equipos industriales"></div><div class="card-content"><small>Industria</small><h4>Equipos industriales</h4><p><strong>Desde Bs2.900</strong></p><span class="producto-boton">Ver equipos <i class="fa-solid fa-arrow-right"></i></span></div></a></article></div></div></section>
+<section id="ingenieria" class="catalog-section"><div class="container"><div class="section-title"><small>Ingeniería aplicada</small><h3>Soluciones para tu hogar o empresa</h3><p>Explora nuestras soluciones de energía solar, distribución eléctrica y automatización.</p></div><div class="grid"><article class="card"><a href="/generacion-distribuida" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://bepebblex.com/wp-content/uploads/2024/05/inversores-paneles-solares.jpg" alt="Generación distribuida"></div><div class="card-content"><small>Energía solar</small><h4>Generación distribuida</h4><p>Sistemas fotovoltaicos on-grid para hogares, empresas e industrias.</p><span class="producto-boton">Ver sistemas solares <i class="fa-solid fa-arrow-right"></i></span></div></a></article><article class="card"><a href="/tablero-electrico" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1200,h_1200/https://electricidadpractica.com/wp-content/uploads/2025/07/componentes-tablero-electrico.webp" alt="Tablero eléctrico"></div><div class="card-content"><small>Automatización</small><h4>Tablero eléctrico</h4><p>Tableros para protección, distribución, control y automatización.</p><span class="producto-boton">Ver tableros <i class="fa-solid fa-arrow-right"></i></span></div></a></article><article class="card"><a href="/automatizacion" class="producto-link"><div class="card-img"><img loading="lazy" decoding="async" src="https://es.kexunelectric.com/upload/8230/20250421170702184877.webp" alt="Sistemas de automatización"></div><div class="card-content"><small>Control y monitoreo</small><h4>Sistemas de automatización</h4><p>Soluciones de control, monitoreo, sensores y automatización aplicada.</p><span class="producto-boton">Ver automatización <i class="fa-solid fa-arrow-right"></i></span></div></a></article></div></div></section>
 <section>
   <div class="container">
-    <div class="section-title"><small>Diferencial Griden</small><h3>Catálogo con enfoque técnico y comercial</h3><p>No solo mostramos productos: priorizamos información técnica, soporte, trazabilidad y asesoramiento para una compra mejor informada.</p></div>
+    <div class="section-title"><small>Diferencial Griden</small><h3>Te ayudamos a elegir con criterio técnico</h3><p>No solo mostramos productos: priorizamos información técnica, soporte, trazabilidad y asesoramiento para una compra mejor informada.</p></div>
     <div class="trust-grid">
       <div class="trust-card"><i class="fa-solid fa-magnifying-glass-chart"></i><h4>Selección técnica</h4><p>Orientación para elegir equipos de acuerdo con la aplicación, presupuesto y condiciones reales de uso.</p></div>
       <div class="trust-card"><i class="fa-solid fa-file-shield"></i><h4>Documentación</h4><p>Enfoque en fichas, manuales, certificaciones, placas y trazabilidad según el tipo de producto.</p></div>
