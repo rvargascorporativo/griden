@@ -1435,40 +1435,49 @@ function actualizarMesesGriden() {
   }
 }
 
-function startCounters() {
-  actualizarMesesGriden();
-
-  document.querySelectorAll(".counter").forEach(counter => {
-    animateCounter(counter, 1800);
-  });
-}
+// Iniciar una sola vez cuando el contador entre en la pantalla.
 actualizarMesesGriden();
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target, 1800);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
+const counters = document.querySelectorAll(".counter");
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      document.querySelectorAll(".counter").forEach(counter => {
-        observer.observe(counter);
-      });
+function revealCounter(counter) {
+  if (counter.dataset.animated === "true") return;
+  if (reduceMotion) {
+    counter.dataset.animated = "true";
+    counter.textContent = formatNumber(Number(counter.dataset.target), counter.dataset.format || "plain");
+  } else {
+    animateCounter(counter, 1800);
+  }
+}
 
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          document.querySelectorAll(".counter").forEach(counter => {
-            if (counter.dataset.animated !== "true") {
-              animateCounter(counter, 1800);
-            }
-          });
-        }, 800);
-      });
-    } else {
-      window.addEventListener("load", startCounters);
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        revealCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(counter => observer.observe(counter));
+} else {
+  // Compatibilidad: comprobar visibilidad, nunca iniciar por tiempo de carga.
+  function checkVisibleCounters() {
+    counters.forEach(counter => {
+      const rect = counter.getBoundingClientRect();
+      const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+      if (rect.height > 0 && visible >= rect.height * 0.5) revealCounter(counter);
+    });
+    if (Array.from(counters).every(counter => counter.dataset.animated === "true")) {
+      window.removeEventListener("scroll", checkVisibleCounters);
+      window.removeEventListener("resize", checkVisibleCounters);
     }
+  }
+  window.addEventListener("scroll", checkVisibleCounters, { passive: true });
+  window.addEventListener("resize", checkVisibleCounters);
+  checkVisibleCounters();
+}
+
   </script>
 
 </body>
