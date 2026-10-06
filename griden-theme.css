@@ -71,3 +71,13 @@ header .brand img {
  header .brand span,header .brand-text span {font-size:9px;letter-spacing:.7px;}
  header .brand img {width:48px;height:48px;flex-basis:48px;}
 }
+
+/* Menú: una sola fila cuando dispone de espacio; menú móvil antes de desbordar. */
+header .brand {flex-shrink:0;}
+header .brand span,header .brand-text span {white-space:nowrap;}
+header .desktop-nav {flex-wrap:nowrap;gap:18px;justify-content:flex-end;}
+header .desktop-nav a {margin-left:0;white-space:nowrap;font-size:14px;}
+@media(max-width:1150px){
+ header .desktop-nav {display:none;}
+ header .menu-toggle {display:block;flex-shrink:0;}
+}
