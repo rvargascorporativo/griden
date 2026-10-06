@@ -1099,11 +1099,11 @@
     <div class="stats-grid">
       
             <div class="stat-box">
-        <h2 class="counter" data-target="97" data-format="plus">0</h2>
+        <h2 class="counter" id="ventasCounter" data-target="97" data-format="plus">0</h2>
         <p>Ventas concretadas con clientes satisfechos.</p>
       </div>    
       <div class="stat-box">
-        <h2 class="counter" data-target="86" data-format="plus">0</h2>
+        <h2 class="counter" id="cotizacionesCounter" data-target="86" data-format="plus">0</h2>
         <p>Proyectos, cotizaciones, soluciones técnicas con enfoque comercial y energético y desarrollo de herramientas digitales.</p>
       </div>
 
@@ -1434,6 +1434,35 @@ function actualizarMesesGriden() {
     mesesCounter.setAttribute("data-target", meses);
   }
 }
+
+// Incrementos programados: no están conectados a un registro de operaciones.
+// Base: 97 ventas y 86 cotizaciones al 5 de octubre de 2026 (Bolivia).
+function programmedTotals(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/La_Paz", year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(now);
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  const year = Number(values.year), month = Number(values.month), day = Number(values.day);
+  const days = Math.floor((Date.UTC(year, month - 1, day) - Date.UTC(2026, 9, 5)) / 86400000);
+  const weeks = Math.max(0, Math.floor(days / 7));
+  let sales = 97;
+  // Secuencia pseudoaleatoria fija: todos ven el mismo total, incluso al recargar.
+  let seed = 20261005;
+  for (let week = 0; week < weeks; week++) {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    sales += 1 + (seed % 3);
+  }
+  const months = Math.max(0, (year - 2026) * 12 + month - 10 - (day < 5 ? 1 : 0));
+  return { sales, quotes: 86 + months * 3 };
+}
+function updateProgrammedTotals() {
+  const totals = programmedTotals();
+  const sales = document.getElementById("ventasCounter");
+  const quotes = document.getElementById("cotizacionesCounter");
+  if (sales) sales.dataset.target = String(totals.sales);
+  if (quotes) quotes.dataset.target = String(totals.quotes);
+}
+updateProgrammedTotals();
 
 // Iniciar una sola vez cuando el contador entre en la pantalla.
 actualizarMesesGriden();

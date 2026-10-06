@@ -42,7 +42,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
  .griden-home #inicio h2 {font-size:38px;letter-spacing:-.8px;}
  .griden-home #inicio .hero-overlay {background:rgba(11,23,48,.88);}
  .griden-home #inicio p {font-size:16px;}
- .griden-home #inicio .buttons a {text-align:center;flex:1 1 180px;}
+ .griden-home #inicio .buttons a {text-align:center;flex:0 0 auto;min-height:48px;padding:13px 20px;}
 }
 @media(prefers-reduced-motion:reduce){
  html {scroll-behavior:auto;}
