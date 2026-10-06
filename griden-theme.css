@@ -1,0 +1,50 @@
+/* Griden: paleta compartida. Cargar después de los estilos de cada página. */
+:root {
+ --primary:#0b1730; --primary-dark:#173d91;
+ --accent:#2455e6; --accent2:#18bfe8; --accent-soft:#eaf1ff;
+ --text:#0b1730; --muted:#475569; --border:#dbe5f2;
+ --bg:#fff; --bg-soft:#f3f7ff; --soft:#f3f7ff; --card:#fff;
+ --success:#15803d; --success-dark:#166534; --griden-lime:#b8ef38;
+}
+header {border-top:4px solid var(--accent);}
+nav a {color:#475569;}
+nav a:hover, nav a:focus-visible {color:var(--accent);}
+.auth-link {color:var(--accent);}
+.btn-primary, .btn-register, .producto-boton.dark {
+ background:linear-gradient(135deg,#2455e6,#173d91); color:#fff;
+ box-shadow:0 8px 22px rgba(36,85,230,.20);
+}
+.btn-whatsapp, .btn-wa {background:#b8ef38; color:#0b1730; box-shadow:0 8px 22px rgba(184,239,56,.18);}
+.btn-primary:hover, .btn-register:hover {background:#173d91;}
+.btn-whatsapp:hover, .btn-wa:hover {background:#c7f565;}
+.producto-boton:not(.dark) {background:#eaf1ff;color:#173d91;}
+.service-card, .trust-card, .stat-box {border-top:3px solid var(--accent);}
+.service-card:nth-child(2), .trust-card:nth-child(2), .stat-box:nth-child(2) {border-top-color:#18bfe8;}
+.service-card:nth-child(3), .trust-card:nth-child(3), .stat-box:nth-child(3) {border-top-color:#b8ef38;}
+.stat-box .counter {color:var(--accent);}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+ outline:3px solid #2455e6; outline-offset:4px;
+}
+.griden-home #inicio {min-height:640px; background:#0b1730;}
+.griden-home #inicio .hero-overlay {
+ background:linear-gradient(90deg,rgba(11,23,48,.97) 0%,rgba(11,23,48,.88) 42%,rgba(11,23,48,.60) 70%,rgba(11,23,48,.48) 100%);
+}
+.griden-home #inicio .hero-content {width:92%;max-width:1200px;margin:0 auto;padding:86px 0;}
+.griden-home #inicio h2 {font-size:clamp(38px,4.5vw,62px);line-height:1.08;letter-spacing:-1.5px;max-width:750px;}
+.griden-home #inicio h2 strong {color:#b8ef38;}
+.griden-home #inicio p {max-width:620px;color:#f1f5ff;}
+.griden-home #inicio .pill {color:#d9f99d;background:rgba(184,239,56,.10);border-color:rgba(184,239,56,.4);}
+.griden-home .stats-section {background:#f3f7ff;}
+.griden-home .section-title h3 {line-height:1.2;}
+@media(max-width:600px){
+ .griden-home #inicio {min-height:0;}
+ .griden-home #inicio .hero-content {padding:58px 0;}
+ .griden-home #inicio h2 {font-size:38px;letter-spacing:-.8px;}
+ .griden-home #inicio .hero-overlay {background:rgba(11,23,48,.88);}
+ .griden-home #inicio p {font-size:16px;}
+ .griden-home #inicio .buttons a {text-align:center;flex:1 1 180px;}
+}
+@media(prefers-reduced-motion:reduce){
+ html {scroll-behavior:auto;}
+ .fade-up {opacity:1;transform:none;animation:none;}
+}
