@@ -69,8 +69,8 @@
     carousel.querySelector('.slide-count').setAttribute('aria-live', paused || focusInside ? 'polite' : 'off');
   }
   pauseButton.addEventListener('click', () => { paused = !paused; reflectPause(); schedule(); });
-  carousel.querySelector('.previous').addEventListener('click', () => { show(current - 1); schedule(); });
-  carousel.querySelector('.next').addEventListener('click', () => { show(current + 1); schedule(); });
+  carousel.querySelector('.previous')?.addEventListener('click', () => { show(current - 1); schedule(); });
+  carousel.querySelector('.next')?.addEventListener('click', () => { show(current + 1); schedule(); });
   dots.forEach(dot => dot.addEventListener('click', () => { show(Number(dot.dataset.slide)); schedule(); }));
   carousel.addEventListener('focusin', () => { focusInside = true; reflectPause(); schedule(); });
   carousel.addEventListener('focusout', event => { if (!carousel.contains(event.relatedTarget)) { focusInside = false; reflectPause(); schedule(); } });

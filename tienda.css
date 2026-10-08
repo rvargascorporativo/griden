@@ -152,3 +152,13 @@
 .hero .photo-slide{height:auto;min-height:0;padding:0;background:transparent}
 .hero .photo-link{height:auto}.hero .banner-photo{display:block;width:100%;max-width:none;height:auto;object-fit:initial}
 .hero .photo-backdrop{display:none}
+
+/* Categorías: el producto ocupa la tarjeta y se conserva completo. */
+.categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.category{position:relative;background:#f5f6f7;border:1px solid #e8ecef;border-radius:8px;isolation:isolate}
+.category img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;padding:0;mix-blend-mode:multiply}
+.category>span:last-child{padding:20px 26px;font-size:22px;border-top:1px solid #e0e5e8;background:#fff;position:relative;z-index:1}
+.category:hover img{transform:scale(1.025);transition:transform .3s ease}
+.hero .arrows{gap:0}.hero .arrows .pause{width:36px;height:36px;font-size:14px}
+@media(max-width:760px){.categories{gap:14px}.category>span:last-child{padding:15px;font-size:17px}}
+@media(max-width:540px){.categories{grid-template-columns:1fr;gap:20px}.category>span:last-child{font-size:20px;padding:18px 22px}}
