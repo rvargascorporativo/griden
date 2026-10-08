@@ -59,7 +59,7 @@
   function schedule() {
     clearInterval(timer);
     timer = null;
-    if (!paused && !document.hidden && !focusInside) timer = setInterval(() => show(current + 1), 5000);
+    if (!paused && !document.hidden && !focusInside) timer = setInterval(() => show(current + 1), 3000);
   }
   function reflectPause() {
     pauseButton.textContent = paused ? '▶' : 'Ⅱ';
