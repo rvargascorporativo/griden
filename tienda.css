@@ -175,3 +175,8 @@
 .showcase-model>span b{font-size:20px;font-weight:400}
 @media(max-width:760px){.scooter-showcase{padding:24px 12px 16px}.scooter-showcase h3{font-size:12px;letter-spacing:1.4px;margin-bottom:10px}.showcase-pair{gap:10px}.showcase-model>span{font-size:17px;padding:12px 8px 0}.curated-categories{gap:20px}}
 @media(max-width:400px){.scooter-showcase{padding-inline:6px}.showcase-pair{gap:4px}.showcase-model>span{font-size:15px}.showcase-photo img{transform:scale(1.07)}}
+
+/* Preventa con las fotografías suministradas por Griden. */
+.presale-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}.presale-card{border:1px solid #dce2e8;background:#fff;min-width:0;overflow:hidden;border-radius:6px}.presale-photo{position:relative;background:#f2f3f4}.presale-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain}.presale-badge{position:absolute;top:18px;left:18px;background:#c6f344;color:#0b1730;z-index:1;border-radius:3px;font-size:11px;letter-spacing:1.4px;font-weight:700;padding:9px 12px}.presale-info{padding:24px}.presale-info h3{font-size:23px;line-height:1.25;margin:0 0 12px}.presale-info p{font-size:13px;color:#58616b;margin:0 0 20px;max-width:360px}.presale-info .button{margin:0}
+@media(max-width:760px){.presale-grid{gap:18px}.presale-info{padding:18px}.presale-info h3{font-size:19px}.presale-badge{top:12px;left:12px;font-size:9px;padding:7px 9px}.presale-info .button{width:100%;padding:13px;font-size:12px}}
+@media(max-width:540px){.presale-grid{grid-template-columns:1fr;gap:24px}.presale-info h3{font-size:22px}}
