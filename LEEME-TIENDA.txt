@@ -25,3 +25,7 @@ Se conserva el encabezado blanco y el menú de la captura, incluyendo Mi cuenta 
 
 IMÁGENES Y MENÚ ACTUALIZADOS
 Imágenes ampliadas en banners, categorías y productos. En celular, los productos se muestran uno por fila. El menú móvil es un panel lateral con cabecera Griden, cierre y fondo oscuro exterior.
+
+CARRUSEL FOTOGRÁFICO Y BASE
+Se muestran las cuatro fotografías adjuntas, completas, en un carrusel automático. Las fotos tienen proporciones diferentes; un fondo difuminado rellena el espacio lateral sin recortarlas. El pie de la tienda conserva las cuatro columnas y enlaces del inicio original.
+IMPORTANTE: esta versión incluye la carpeta images/tienda. Sube los archivos HTML/CSS/JS a la raíz y las cuatro fotografías a images/tienda en el repositorio. Si arrastras la carpeta images con GitHub Upload files desde la raíz, conserva la estructura de carpetas. No subas la carpeta griden-tienda que contiene todo.
