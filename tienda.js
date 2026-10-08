@@ -40,7 +40,7 @@
   const dots = [...carousel.querySelectorAll('[data-slide]')];
   const pauseButton = carousel.querySelector('.pause');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let current = 0, timer = null, paused = motion.matches, pointerInside = false, focusInside = false;
+  let current = 0, timer = null, paused = motion.matches, focusInside = false;
   function fitPhoto() {
     const viewport = carousel.querySelector('.carousel-viewport');
     const height = slides[current].getBoundingClientRect?.().height;
@@ -59,7 +59,7 @@
   function schedule() {
     clearInterval(timer);
     timer = null;
-    if (!paused && !document.hidden && !pointerInside && !focusInside) timer = setInterval(() => show(current + 1), 5000);
+    if (!paused && !document.hidden && !focusInside) timer = setInterval(() => show(current + 1), 5000);
   }
   function reflectPause() {
     pauseButton.textContent = paused ? '▶' : 'Ⅱ';
@@ -72,8 +72,6 @@
   carousel.querySelector('.previous').addEventListener('click', () => { show(current - 1); schedule(); });
   carousel.querySelector('.next').addEventListener('click', () => { show(current + 1); schedule(); });
   dots.forEach(dot => dot.addEventListener('click', () => { show(Number(dot.dataset.slide)); schedule(); }));
-  carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { pointerInside = true; schedule(); } });
-  carousel.addEventListener('pointerleave', () => { pointerInside = false; schedule(); });
   carousel.addEventListener('focusin', () => { focusInside = true; reflectPause(); schedule(); });
   carousel.addEventListener('focusout', event => { if (!carousel.contains(event.relatedTarget)) { focusInside = false; reflectPause(); schedule(); } });
   document.addEventListener('visibilitychange', schedule);
