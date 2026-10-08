@@ -162,3 +162,16 @@
 .hero .arrows{gap:0}.hero .arrows .pause{width:36px;height:36px;font-size:14px}
 @media(max-width:760px){.categories{gap:14px}.category>span:last-child{padding:15px;font-size:17px}}
 @media(max-width:540px){.categories{grid-template-columns:1fr;gap:20px}.category>span:last-child{font-size:20px;padding:18px 22px}}
+
+/* Composición de catálogo: dos modelos por escena, sin fichas aisladas. */
+.curated-categories{display:grid;grid-template-columns:1fr;gap:28px}
+.scooter-showcase{overflow:hidden;background:#dedfe1;border-radius:0;padding:32px 28px 18px}
+.scooter-showcase h3{text-align:center;font-size:17px;font-weight:500;letter-spacing:2px;color:#0b1730;margin:0 0 12px}
+.showcase-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.showcase-model{display:block;min-width:0}.showcase-photo{overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.showcase-photo img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transform:scale(1.10);transition:transform .3s ease}
+.showcase-model:hover img{transform:scale(1.13)}
+.showcase-model>span{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 6px;font-size:22px;font-weight:700;letter-spacing:-.4px;color:#0b1730}
+.showcase-model>span b{font-size:20px;font-weight:400}
+@media(max-width:760px){.scooter-showcase{padding:24px 12px 16px}.scooter-showcase h3{font-size:12px;letter-spacing:1.4px;margin-bottom:10px}.showcase-pair{gap:10px}.showcase-model>span{font-size:17px;padding:12px 8px 0}.curated-categories{gap:20px}}
+@media(max-width:400px){.scooter-showcase{padding-inline:6px}.showcase-pair{gap:4px}.showcase-model>span{font-size:15px}.showcase-photo img{transform:scale(1.07)}}
