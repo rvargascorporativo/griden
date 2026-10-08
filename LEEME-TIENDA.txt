@@ -19,3 +19,9 @@ Eco: Bs 3.850 con envío; Urban M2: Bs 3.890; Urban Pro: Bs 4.190; T4 Max: Bs 6.
 Para cambiar los precios de la tienda, edita el texto correspondiente en index.html y catalogo.html. Actualiza también la ficha de cada modelo si sus precios han cambiado.
 
 Se comprobó la lógica del carrusel, menú móvil y existencia de enlaces e imágenes. Queda pendiente la comprobación visual en navegador.
+
+ENCABEZADO CORREGIDO
+Se conserva el encabezado blanco y el menú de la captura, incluyendo Mi cuenta con el mismo acceso Firebase del sitio. Se eliminó la franja promocional superior. Incluye cuenta.js: súbelo junto a los demás archivos.
+
+IMÁGENES Y MENÚ ACTUALIZADOS
+Imágenes ampliadas en banners, categorías y productos. En celular, los productos se muestran uno por fila. El menú móvil es un panel lateral con cabecera Griden, cierre y fondo oscuro exterior.
