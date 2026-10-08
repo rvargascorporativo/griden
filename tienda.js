@@ -41,9 +41,17 @@
   const pauseButton = carousel.querySelector('.pause');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let current = 0, timer = null, paused = motion.matches, pointerInside = false, focusInside = false;
+  function fitPhoto() {
+    const viewport = carousel.querySelector('.carousel-viewport');
+    const height = slides[current].getBoundingClientRect?.().height;
+    if (viewport && height > 0) viewport.style.height = `${height}px`;
+  }
+  slides.forEach(slide => slide.querySelector?.('.banner-photo')?.addEventListener('load', fitPhoto));
+  window.addEventListener('resize', fitPhoto);
   function show(index) {
     current = (index + slides.length) % slides.length;
     track.style.transform = `translateX(-${current * 100}%)`;
+    fitPhoto();
     slides.forEach((slide, i) => { slide.inert = i !== current; slide.setAttribute('aria-hidden', String(i !== current)); });
     dots.forEach((dot, i) => dot.setAttribute('aria-pressed', String(i === current)));
     carousel.querySelector('.slide-count').textContent = `0${current + 1} / 0${slides.length}`;
