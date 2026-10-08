@@ -1,0 +1,21 @@
+ACTUALIZACIÓN DE LA TIENDA GRIDEN
+
+1. Descomprime este ZIP.
+2. Abre el repositorio rvargascorporativo/griden en GitHub.
+3. En la raíz del repositorio, usa Add file > Upload files.
+4. Arrastra TODOS los archivos HTML y CSS y el archivo tienda.js de esta carpeta. No subas la carpeta que los contiene.
+5. Pulsa Commit changes. Espera que termine el despliegue y recarga con Ctrl + F5.
+
+La raíz / abre la tienda. /catalogo mantiene acceso a la misma tienda.
+/inicio conserva la presentación anterior de Griden, con las frases ya corregidas.
+Los enlaces del menú en las páginas actualizadas distinguen Inicio y Tienda.
+El carrusel tiene tres banners, avanza cada cinco segundos y permite pausa, flechas y deslizamiento táctil. Respeta la preferencia de reducir movimiento.
+Se usan las imágenes y el video que ya estaban en tu repositorio: no hay que subir nuevos archivos multimedia.
+Las consultas de compra se envían al WhatsApp Griden +591 69969051.
+
+REVISA LOS PRECIOS ANTES DE PUBLICAR
+Se conservaron los valores del archivo que compartiste:
+Eco: Bs 3.850 con envío; Urban M2: Bs 3.890; Urban Pro: Bs 4.190; T4 Max: Bs 6.150.
+Para cambiar los precios de la tienda, edita el texto correspondiente en index.html y catalogo.html. Actualiza también la ficha de cada modelo si sus precios han cambiado.
+
+Se comprobó la lógica del carrusel, menú móvil y existencia de enlaces e imágenes. Queda pendiente la comprobación visual en navegador.
