@@ -1,14 +1,8 @@
-GRIDEN — TEMA V6: VIOLETA Y FUCSIA
+GRIDEN — TEMA V7: LIMA Y AZUL MARINO
 
-Sube los 12 archivos del ZIP a la raíz de tu repositorio, sin subir la
-carpeta contenedora. Incluye tienda-catalogo-v6.css y las seis fotos
-terminadas en -catalogo.png. Conserva sus nombres.
+Sube los 12 archivos del ZIP a la raíz de tu repositorio, sin subir la carpeta contenedora. Incluye tienda-catalogo-v7.css y las seis fotos terminadas en -catalogo.png. Conserva sus nombres.
 
-Portada blanca y abierta, título violeta/fucsia, botones violetas,
-etiquetas fucsia y productos grandes sobre blanco. Se mantiene la preventa
-con fotografías de 1254 × 1254 píxeles y sin marcos interiores.
-Se conservaron los precios del archivo anterior.
+Portada azul marino, título blanco con acento lima, botones y etiquetas lima. Productos sobre blanco con fotografías completas y tamaños uniformes. Precios y funciones conservados.
 
 Después del despliegue, recarga con Ctrl + F5.
-Se revisaron el código y referencias locales; la prueba visual de la web
-en navegador queda pendiente. No se publicó en gridenbolivia.com.
+Se revisaron el código y referencias locales; la prueba visual en navegador queda pendiente. No se publicó en gridenbolivia.com.
