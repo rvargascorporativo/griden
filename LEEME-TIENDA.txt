@@ -1,48 +1,21 @@
-GRIDEN — TIENDA RENOVADA — 9 OCTUBRE 2026
+GRIDEN — PREVENTA CON IMÁGENES CUADRADAS
 
-CÓMO ACTUALIZAR TU WEB
-1. Descomprime el archivo.
-2. Abre tu repositorio rvargascorporativo/griden en GitHub.
-3. En la raíz, elige Add file > Upload files.
-4. Sube estos cinco archivos a la raíz, reemplazando los anteriores:
-   index.html
-   catalogo.html
-   tienda.js
-   tienda-premium.css (nuevo archivo: es indispensable)
-   LEEME-TIENDA.txt
-5. Pulsa Commit changes y espera el despliegue.
-6. Recarga tu página con Ctrl + F5.
+Sube TODOS los archivos de este paquete a la raíz de tu repositorio:
+index.html, catalogo.html, tienda.js, tienda.css, tienda-catalogo-v4.css y las
+seis fotografías nuevas terminadas en -catalogo.png. Conserva sus nombres.
+No subas la carpeta contenedora del ZIP: sube sus archivos.
 
-No tienes que volver a subir fotografías ni videos: se utilizan los archivos
-que ya están en tu repositorio. Conserva tienda.css y cuenta.js existentes.
-El ZIP completo conserva también todas las páginas y recursos originales.
-El paquete ligero contiene únicamente los cinco archivos de actualización.
+Las seis fotografías tienen formato cuadrado y fondo blanco continuo.
+La hoja de estilos tiene un nombre nuevo para evitar la caché anterior.
+La foto llena el área cuadrada de borde a borde; el producto se ve completo.
+No hay padding ni recuadro interior. Se conserva azul y naranja.
 
-QUÉ CAMBIÓ
-- Portada azul eléctrico con acentos lima y un scooter completo de gran tamaño.
-- Catálogo principal antes de la preventa, sin bloques repetidos de productos.
-- Cuatro tarjetas grandes, fondos suaves de color y fotografías sin recortes.
-- Filtros para uso urbano y más potencia.
-- Vista rápida con tres fotografías por modelo, precio, ficha y WhatsApp.
-- Preventa con filtros por scooters, motos y bicicletas, imágenes completas.
-- Fotografías de recorridos en un carrusel automático cada tres segundos,
-  con pausa, indicadores y deslizamiento táctil, después de la preventa.
-- Botón flotante de contacto y diseño adaptable a celular.
-- Conserva el menú, Mi cuenta, fichas de producto y demás páginas originales.
+Después del despliegue, recarga con Ctrl + F5. Deben verse las etiquetas
+naranjas. Si ves etiquetas lima, sigue cargándose la versión anterior.
 
-PRECIOS
-Se conservaron los precios del ZIP recibido:
-Eco: Bs 3.850, con envío.
-Urban M2: Bs 3.890.
-Urban Pro: Bs 4.190.
-T4 Max: Bs 6.150.
-Antes de publicar, confirma que son los precios que deseas ofrecer.
-Si cambias uno, actualiza la tarjeta y el bloque JSON store-models de
-index.html y catalogo.html, además de la ficha individual del modelo.
-La tienda no afirma stock disponible ni fechas de llegada no confirmadas.
+Se revisaron los archivos y referencias locales. La prueba visual de la
+web en navegador queda pendiente. No se publicó en gridenbolivia.com.
 
-COMPROBACIONES
-Sintaxis de JavaScript, referencias locales, fotografías de galerías, IDs,
-orden de secciones y sincronización de tienda/catálogo: correctos.
-La verificación visual e interactiva en navegador queda pendiente.
-No se publicó ningún cambio en gridenbolivia.com desde esta sesión.
+Tamaño de las seis imágenes: 1254 × 1254 píxeles.
+Preparadas con edición de imágenes integrada: formato cuadrado, producto
+completo, fondo blanco continuo, sombra sutil y sin marcos interiores.
