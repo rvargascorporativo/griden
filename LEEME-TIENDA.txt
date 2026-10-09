@@ -1,7 +1,7 @@
 GRIDEN — PREVENTA CON IMÁGENES CUADRADAS
 
 Sube TODOS los archivos de este paquete a la raíz de tu repositorio:
-index.html, catalogo.html, tienda.js, tienda.css, tienda-catalogo-v4.css y las
+index.html, catalogo.html, tienda.js, tienda.css, tienda-catalogo-v5.css y las
 seis fotografías nuevas terminadas en -catalogo.png. Conserva sus nombres.
 No subas la carpeta contenedora del ZIP: sube sus archivos.
 
@@ -19,3 +19,9 @@ web en navegador queda pendiente. No se publicó en gridenbolivia.com.
 Tamaño de las seis imágenes: 1254 × 1254 píxeles.
 Preparadas con edición de imágenes integrada: formato cuadrado, producto
 completo, fondo blanco continuo, sombra sutil y sin marcos interiores.
+
+TEMA V5
+Fondos blancos uniformes en los cuatro modelos principales.
+Fotografías más grandes y sin las letras gigantes de fondo.
+Azul eléctrico y naranja vivo en navegación, botones y acentos.
+Los productos se muestran completos y conservan las imágenes originales.
