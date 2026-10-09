@@ -1,31 +1,48 @@
-ACTUALIZACIÓN DE LA TIENDA GRIDEN
+GRIDEN — TIENDA RENOVADA — 9 OCTUBRE 2026
 
-1. Descomprime este ZIP.
-2. Abre el repositorio rvargascorporativo/griden en GitHub.
-3. En la raíz del repositorio, usa Add file > Upload files.
-4. Arrastra TODOS los archivos HTML y CSS y el archivo tienda.js de esta carpeta. No subas la carpeta que los contiene.
-5. Pulsa Commit changes. Espera que termine el despliegue y recarga con Ctrl + F5.
+CÓMO ACTUALIZAR TU WEB
+1. Descomprime el archivo.
+2. Abre tu repositorio rvargascorporativo/griden en GitHub.
+3. En la raíz, elige Add file > Upload files.
+4. Sube estos cinco archivos a la raíz, reemplazando los anteriores:
+   index.html
+   catalogo.html
+   tienda.js
+   tienda-premium.css (nuevo archivo: es indispensable)
+   LEEME-TIENDA.txt
+5. Pulsa Commit changes y espera el despliegue.
+6. Recarga tu página con Ctrl + F5.
 
-La raíz / abre la tienda. /catalogo mantiene acceso a la misma tienda.
-/inicio conserva la presentación anterior de Griden, con las frases ya corregidas.
-Los enlaces del menú en las páginas actualizadas distinguen Inicio y Tienda.
-El carrusel tiene tres banners, avanza cada cinco segundos y permite pausa, flechas y deslizamiento táctil. Respeta la preferencia de reducir movimiento.
-Se usan las imágenes y el video que ya estaban en tu repositorio: no hay que subir nuevos archivos multimedia.
-Las consultas de compra se envían al WhatsApp Griden +591 69969051.
+No tienes que volver a subir fotografías ni videos: se utilizan los archivos
+que ya están en tu repositorio. Conserva tienda.css y cuenta.js existentes.
+El ZIP completo conserva también todas las páginas y recursos originales.
+El paquete ligero contiene únicamente los cinco archivos de actualización.
 
-REVISA LOS PRECIOS ANTES DE PUBLICAR
-Se conservaron los valores del archivo que compartiste:
-Eco: Bs 3.850 con envío; Urban M2: Bs 3.890; Urban Pro: Bs 4.190; T4 Max: Bs 6.150.
-Para cambiar los precios de la tienda, edita el texto correspondiente en index.html y catalogo.html. Actualiza también la ficha de cada modelo si sus precios han cambiado.
+QUÉ CAMBIÓ
+- Portada azul eléctrico con acentos lima y un scooter completo de gran tamaño.
+- Catálogo principal antes de la preventa, sin bloques repetidos de productos.
+- Cuatro tarjetas grandes, fondos suaves de color y fotografías sin recortes.
+- Filtros para uso urbano y más potencia.
+- Vista rápida con tres fotografías por modelo, precio, ficha y WhatsApp.
+- Preventa con filtros por scooters, motos y bicicletas, imágenes completas.
+- Fotografías de recorridos en un carrusel automático cada tres segundos,
+  con pausa, indicadores y deslizamiento táctil, después de la preventa.
+- Botón flotante de contacto y diseño adaptable a celular.
+- Conserva el menú, Mi cuenta, fichas de producto y demás páginas originales.
 
-Se comprobó la lógica del carrusel, menú móvil y existencia de enlaces e imágenes. Queda pendiente la comprobación visual en navegador.
+PRECIOS
+Se conservaron los precios del ZIP recibido:
+Eco: Bs 3.850, con envío.
+Urban M2: Bs 3.890.
+Urban Pro: Bs 4.190.
+T4 Max: Bs 6.150.
+Antes de publicar, confirma que son los precios que deseas ofrecer.
+Si cambias uno, actualiza la tarjeta y el bloque JSON store-models de
+index.html y catalogo.html, además de la ficha individual del modelo.
+La tienda no afirma stock disponible ni fechas de llegada no confirmadas.
 
-ENCABEZADO CORREGIDO
-Se conserva el encabezado blanco y el menú de la captura, incluyendo Mi cuenta con el mismo acceso Firebase del sitio. Se eliminó la franja promocional superior. Incluye cuenta.js: súbelo junto a los demás archivos.
-
-IMÁGENES Y MENÚ ACTUALIZADOS
-Imágenes ampliadas en banners, categorías y productos. En celular, los productos se muestran uno por fila. El menú móvil es un panel lateral con cabecera Griden, cierre y fondo oscuro exterior.
-
-CARRUSEL FOTOGRÁFICO Y BASE
-Se muestran las cuatro fotografías adjuntas, completas, en un carrusel automático. Las fotos tienen proporciones diferentes; un fondo difuminado rellena el espacio lateral sin recortarlas. El pie de la tienda conserva las cuatro columnas y enlaces del inicio original.
-IMPORTANTE: esta versión incluye la carpeta images/tienda. Sube los archivos HTML/CSS/JS a la raíz y las cuatro fotografías a images/tienda en el repositorio. Si arrastras la carpeta images con GitHub Upload files desde la raíz, conserva la estructura de carpetas. No subas la carpeta griden-tienda que contiene todo.
+COMPROBACIONES
+Sintaxis de JavaScript, referencias locales, fotografías de galerías, IDs,
+orden de secciones y sincronización de tienda/catálogo: correctos.
+La verificación visual e interactiva en navegador queda pendiente.
+No se publicó ningún cambio en gridenbolivia.com desde esta sesión.
