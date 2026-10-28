@@ -278,6 +278,20 @@
       font-weight:900;
     }
 
+
+    .purchase-row{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:28px}
+    .purchase-row .price-note{margin-top:0}
+    .buy-t4{background:#ea580c;color:#fff;box-shadow:0 8px 24px rgba(234,88,12,.22)}
+    .qr-modal{position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.78);display:none;align-items:center;justify-content:center;padding:18px}
+    .qr-modal.is-open{display:flex}
+    .qr-dialog{position:relative;width:100%;max-width:480px;max-height:95vh;overflow-y:auto;background:#fff;color:#0f172a;border-radius:22px;padding:24px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+    .qr-dialog h3{font-size:25px;margin:4px 35px 8px}
+    .qr-dialog p{font-size:14px;line-height:1.5;color:#475569;margin:8px 0 14px}
+    .qr-dialog img{display:block;width:100%;max-width:390px;height:auto;margin:12px auto;border-radius:8px}
+    .qr-close{position:absolute;top:13px;right:13px;border:0;background:#f1f5f9;color:#0f172a;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:25px}
+    .qr-confirm{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#16a34a;color:white;text-decoration:none;font-weight:800;padding:12px 18px;border-radius:12px}
+    @media(max-width:500px){.purchase-row{align-items:stretch}.purchase-row .price-note{border-radius:16px;white-space:normal}.buy-t4{width:100%}.qr-dialog{padding:16px}.qr-dialog h3{font-size:21px}}
+
     .table-wrap{overflow:auto;border:1px solid var(--border);border-radius:22px;margin-top:28px;background:white}
     .tech{width:100%;border-collapse:collapse;min-width:620px}
     .tech td{padding:16px;border-bottom:1px solid var(--border)}
@@ -546,7 +560,10 @@
       <div class="spec-card"><small>Motor</small><strong>1000W</strong></div>
     </div>
 
-    <div class="price-note"><i class="fa-solid fa-tag"></i> Precio de compra por este medio: Bs6.950</div>
+    <div class="purchase-row">
+      <div class="price-note"><i class="fa-solid fa-tag"></i> Precio de compra por este medio: Bs6.950</div>
+      <button type="button" class="btn buy-t4" onclick="openT4QR()"><i class="fa-solid fa-qrcode"></i> Comprar</button>
+    </div>
   </div>
 </section>
 
@@ -661,6 +678,31 @@
     </div>
   </div>
 </section>
+
+
+<div class="qr-modal" id="t4QRModal" role="dialog" aria-modal="true" aria-labelledby="t4QRTitle" aria-hidden="true" onclick="if(event.target===this)closeT4QR()">
+  <div class="qr-dialog">
+    <button type="button" class="qr-close" onclick="closeT4QR()" aria-label="Cerrar">&times;</button>
+    <h3 id="t4QRTitle">Comprar T4 Max · Bs 6.950</h3>
+    <p>Escanea este QR de BCP desde tu aplicación bancaria para realizar el pago.</p>
+    <img src="images/qr-bcp-t4.jpg" alt="Código QR BCP para el pago del scooter T4" width="615" height="510">
+    <p>Antes de confirmar, comprueba que los datos del destinatario y el monto sean correctos. El pago no confirma automáticamente el pedido.</p>
+    <a class="qr-confirm" href="https://wa.me/59169969051?text=Hola%20GRIDEN%2C%20quiero%20confirmar%20mi%20compra%20del%20scooter%20T4%20Max%20por%20Bs%206.950.%20Adjunto%20mi%20comprobante." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Enviar comprobante por WhatsApp</a>
+  </div>
+</div>
+<script>
+  function openT4QR(){
+    var modal=document.getElementById('t4QRModal');
+    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';modal.querySelector('.qr-close').focus();
+  }
+  function closeT4QR(){
+    var modal=document.getElementById('t4QRModal');
+    modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';document.querySelector('.buy-t4').focus();
+  }
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&document.getElementById('t4QRModal').classList.contains('is-open'))closeT4QR();});
+</script>
 
 <div id="authModal" class="auth-modal">
   <div class="auth-box">
